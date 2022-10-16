@@ -1,2 +1,5 @@
 #define LOGIN_VIEW 1
 #define REGISTER_VIEW 2
+#define ADMIN_ROLE 1
+#define CLIENT_ROLE 2
+#define WORKER_ROLE 3
