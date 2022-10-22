@@ -3,9 +3,11 @@
 #include <string.h>
 
 #include "utils/GlobalConstants.c"
-#include "services/RegisterService.c"
 #include "models/Login.c"
 #include "models/Register.c"
+#include "models/User.c"
+#include "repository/UserRepository.c"
+#include "services/LoginService.c"
 #include "views/InitialView.c"
 #include "views/LoginView.c"
 #include "views/RegisterView.c"
@@ -18,6 +20,14 @@ int main() {
 	if (selectedView == LOGIN_VIEW) {
 	    showLoginView();
 	    Login login = getLoginFromLoginView();
+        User user = getUserFromLogin(login);
+        if (user.id == -1) {
+            printf("usuario nao existe!");
+        } else if (user.isAuthenticated == 0) {
+            printf("usuario existe mas senha errada!");
+        } else {
+            printf("usuario existe, senha correta!");
+        }
 	} else if (selectedView == REGISTER_VIEW) {
         showRegisterView();
         Register rregister = getRegisterFromRegisterView();
