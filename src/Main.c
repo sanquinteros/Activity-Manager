@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "utils/GlobalConstants.c"
+#include "services/RegisterService.c"
 #include "models/Login.c"
 #include "models/Register.c"
 #include "views/InitialView.c"
