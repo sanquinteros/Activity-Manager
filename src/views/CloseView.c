@@ -1,3 +1,3 @@
 void showCloseView() {
-	printf("\"Activity Manager\" has been closed.");
+	printf("\"Activity Manager\" has been closed successfully.");
 }
