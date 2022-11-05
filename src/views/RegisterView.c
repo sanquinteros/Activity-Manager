@@ -35,6 +35,4 @@ void showRegisterView() {
     }
     sleep(REDIRECT_TIME);
     show(WELCOME_VIEW);
-
-	return;
 }

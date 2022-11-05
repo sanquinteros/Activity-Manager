@@ -8,11 +8,9 @@ void showWelcomeView() {
     printf("Enter here: ");
 	scanf("%i", &selectedView);
 
-	if (selectedView == LOGIN_VIEW) {
-	    show(LOGIN_VIEW);
-	} else if (selectedView == REGISTER_VIEW) {
-        show(REGISTER_VIEW);
-	} else if (selectedView == CLOSE_VIEW) {
-	    show(CLOSE_VIEW);
-	}
+    if (selectedView == CLOSE_VIEW || selectedView == LOGIN_VIEW || selectedView == REGISTER_VIEW) {
+        show(selectedView);
+    } else {
+        showCurrentView(WELCOME_VIEW);
+    }
 }

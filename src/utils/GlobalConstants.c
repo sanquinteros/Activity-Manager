@@ -1,7 +1,7 @@
 #define CLOSE_VIEW 0
 #define LOGIN_VIEW 1
-#define MAIN_VIEW 3
 #define REGISTER_VIEW 2
+#define MAIN_VIEW 3
 #define SPLASH_VIEW 4
 #define WELCOME_VIEW 5
 

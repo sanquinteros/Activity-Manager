@@ -1,10 +1,3 @@
-void showCloseView();
-void showLoginView();
-void showMainView();
-void showRegisterView();
-void showSplashView();
-void showWelcomeView();
-
 void show(int view){
     system("cls");
 
@@ -15,11 +8,11 @@ void show(int view){
         case LOGIN_VIEW:
             showLoginView();
             break;
-        case MAIN_VIEW:
-            showMainView();
-            break;
         case REGISTER_VIEW:
             showRegisterView();
+            break;
+        case MAIN_VIEW:
+            showMainView();
             break;
         case SPLASH_VIEW:
             showSplashView();

@@ -21,10 +21,8 @@ void showLoginView() {
         printf("You are being redirected to the \"LOGIN\" window.\n");
         sleep(REDIRECT_TIME);
         show(LOGIN_VIEW);
-        return;
     } else {
         currentUser = user;
         show(MAIN_VIEW);
-        return;
     }
 }
