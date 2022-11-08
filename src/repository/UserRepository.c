@@ -1,4 +1,4 @@
-User findUser(User user) {
+User userRepositoryFindUser(User user) {
     User dbUser;
     FILE *userTable;
 
@@ -35,7 +35,7 @@ User findUser(User user) {
     return user;
 }
 
-int getLastUserId() {
+int userRepositoryGetLastUserId() {
 	User user;
     FILE *userTable;
 
@@ -57,7 +57,7 @@ int getLastUserId() {
     return user.id;
 }
 
-int existsByUsername(char username[50]) {
+int userRepositoryExistsByUsername(char username[50]) {
     int exists = 0;
     FILE *userTable;
     User user;
@@ -81,7 +81,7 @@ int existsByUsername(char username[50]) {
     return exists;
 }
 
-int saveUser(User user) {
+int userRepositorySaveUser(User user) {
     FILE *userTable;
 
     userTable = fopen("../tables/User.txt", "a");

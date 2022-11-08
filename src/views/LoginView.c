@@ -14,7 +14,7 @@ void showLoginView() {
 
     Login login = getLogin();
     User user = constructUserFromLogin(login);
-    user = findUser(user);
+    user = userRepositoryFindUser(user);
     if (user.id == -1) {
         printf("Name or password is invalid!\n");
         sleep(REDIRECT_TIME);

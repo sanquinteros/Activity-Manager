@@ -21,8 +21,8 @@ void showRegisterView() {
 	printf("You are in the \"REGISTER\" window.\n");
 
     Register rregister = getRegister();
-    User user = constructUserFromRegister(getLastUserId() + 1, rregister);
-    int userWasCreated = saveUser(user);
+    User user = constructUserFromRegister(userRepositoryGetLastUserId() + 1, rregister);
+    int userWasCreated = userRepositorySaveUser(user);
 
     if (userWasCreated == 1) {
         printf("You have been registered sucessfully!\n");

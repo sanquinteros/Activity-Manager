@@ -2,7 +2,7 @@ Register validateUsername(Register rregister) {
     int usernameExists = 1;
 
     while (usernameExists == 1) {
-        usernameExists = existsByUsername(rregister.username);
+        usernameExists = userRepositoryExistsByUsername(rregister.username);
 
         if (usernameExists == 1) {
             printf("Name already exists, enter another name: ");
