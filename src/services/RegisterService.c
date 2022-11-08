@@ -23,7 +23,7 @@ Register validatePassword(Register rregister) {
         if (strcmp(rregister.password, validationPassword) == 0) {
             passwordIsInvalid = 0;
         } else {
-            printf("The passwords don't match, enter again your password: ");
+            printf("The passwords don't match, enter your password: ");
             scanf("%s", rregister.password);
         }
     }
