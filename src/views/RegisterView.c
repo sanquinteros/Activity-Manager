@@ -3,16 +3,16 @@ Register getRegister() {
 
     printf("Enter your name: ");
     scanf("%s", rregister.username);
-    rregister = validateUsername(rregister);
+    rregister = registerServiceValidateUsername(rregister);
 	printf("Enter your password: ");
 	scanf("%s", rregister.password);
-	rregister = validatePassword(rregister);
+	rregister = registerServiceValidatePassword(rregister);
     printf("If you want to register as an \"Administrator\", enter [%i].\n", ADMIN_ROLE);
     printf("If you want to register as a \"Client\", enter [%i].\n", CLIENT_ROLE);
     printf("If you want to register as a \"Worker\", enter [%i].\n", WORKER_ROLE);
     printf("Enter your role: ");
     scanf("%i", &rregister.role);
-    rregister = validateRole(rregister);
+    rregister = registerServiceValidateRole(rregister);
 
     return rregister;
 }

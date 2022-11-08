@@ -1,4 +1,4 @@
-Register validateUsername(Register rregister) {
+Register registerServiceValidateUsername(Register rregister) {
     int usernameExists = 1;
 
     while (usernameExists == 1) {
@@ -12,7 +12,7 @@ Register validateUsername(Register rregister) {
     return rregister;
 }
 
-Register validatePassword(Register rregister) {
+Register registerServiceValidatePassword(Register rregister) {
     int passwordIsInvalid = 1;
     char validationPassword[50];
 
@@ -30,7 +30,7 @@ Register validatePassword(Register rregister) {
     return rregister;
 }
 
-Register validateRole(Register rregister) {
+Register registerServiceValidateRole(Register rregister) {
     int roleIsInvalid = 1;
 
     while (roleIsInvalid == 1) {
