@@ -16,7 +16,7 @@ void showLoginView() {
     User user = constructUserFromLogin(login);
     user = userRepositoryFindUser(user);
     if (user.id == -1) {
-        printf("Name or password is invalid!\n");
+        printf("Your credentials are invalid!\n");
         sleep(REDIRECT_TIME);
         printf("You are being redirected to the \"LOGIN\" window.\n");
         sleep(REDIRECT_TIME);
