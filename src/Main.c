@@ -4,6 +4,7 @@
 #include <unistd.h>
 
 #include "utils/GlobalConstants.c"
+#include "utils/GlobalFunctions.c"
 
 #include "dtos/Login.c"
 #include "dtos/Register.c"
@@ -16,15 +17,22 @@
 #include "repository/UserRepository.c"
 
 #include "services/RegisterService.c"
+#include "services/ChangePasswordService.c"
 
-#include "views/NexusView.c"
-#include "views/CloseView.c"
-#include "views/CurrentView.c"
+#include "views/ChangeNameView.c"
+#include "views/ChangePasswordView.c"
+#include "views/ClientsPurchasesView.c"
+#include "views/ExitView.c"
 #include "views/LoginView.c"
+#include "views/LogoutView.c"
 #include "views/MainView.c"
+#include "views/MainWorkerView.c"
+#include "views/NexusView.c"
+#include "views/RedirectView.c"
 #include "views/RegisterView.c"
 #include "views/SplashView.c"
 #include "views/WelcomeView.c"
+#include "views/WorkerProfileView.c"
 
 int main() {
     show(SPLASH_VIEW);

@@ -2,17 +2,32 @@ void show(int view){
     system("cls");
 
     switch (view) {
-        case CLOSE_VIEW:
-            showCloseView();
+        case CHANGENAME_VIEW:
+            showChangeNameView();
+            break;
+        case CHANGEPASSWORD_VIEW:
+            showChangePasswordView();
+            break;
+        case CLIENTSPURCHASES_VIEW:
+            showClientsPurchasesView();
+            break;
+        case EXIT_VIEW:
+            showExitView();
             break;
         case LOGIN_VIEW:
             showLoginView();
             break;
-        case REGISTER_VIEW:
-            showRegisterView();
+        case LOGOUT_VIEW:
+            showLogoutView();
             break;
         case MAIN_VIEW:
             showMainView();
+            break;
+        case MAINWORKER_VIEW:
+            showMainWorkerView();
+            break;
+        case REGISTER_VIEW:
+            showRegisterView();
             break;
         case SPLASH_VIEW:
             showSplashView();
@@ -20,8 +35,8 @@ void show(int view){
         case WELCOME_VIEW:
             showWelcomeView();
             break;
-        default:
-            showWelcomeView();
+        case WORKERPROFILE_VIEW:
+            showWorkerProfileView();
             break;
     }
 }

@@ -12,17 +12,12 @@ Login getLogin() {
 void showLoginView() {
 	printf("You are in the \"LOGIN\" window.\n");
 
-    Login login = getLogin();
-    User user = constructUserFromLogin(login);
-    user = userRepositoryFindUser(user);
-    if (user.id == -1) {
+    currentUser = userRepositoryFindUser(constructUserFromLogin(getLogin()));
+    if (currentUser.id == -1) {
         printf("Your credentials are invalid!\n");
         sleep(REDIRECT_TIME);
-        printf("You are being redirected to the \"LOGIN\" window.\n");
-        sleep(REDIRECT_TIME);
-        show(LOGIN_VIEW);
+        redirectTo(LOGIN_VIEW);
     } else {
-        currentUser = user;
         show(MAIN_VIEW);
     }
 }

@@ -15,6 +15,7 @@ void showWelcomeView() {
     } else if (selectedView == 3) {
         show(EXIT_VIEW);
     } else {
-        showCurrentView(WELCOME_VIEW);
+        popInvalidViewMessage();
+        redirectTo(WELCOME_VIEW);
     }
 }

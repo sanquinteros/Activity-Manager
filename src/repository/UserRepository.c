@@ -9,6 +9,9 @@ User userRepositoryFindUser(User user) {
     if (ftell(userTable) == 0) {
         user.id = -1;
         user.role = -1;
+
+        fclose(userTable);
+
         return user;
     } else {
         rewind(userTable);
@@ -23,15 +26,18 @@ User userRepositoryFindUser(User user) {
                     strcpy(user.password, dbUser.password);
                     user.role = dbUser.role;
 
+                    fclose(userTable);
+
                     return user;
                 }
             }
         }
     }
-    fclose(userTable);
-
     user.id = -1;
     user.role = -1;
+
+    fclose(userTable);
+
     return user;
 }
 
@@ -44,6 +50,8 @@ int userRepositoryGetLastUserId() {
     fseek(userTable, 0, SEEK_END);
 
     if (ftell(userTable) == 0) {
+        fclose(userTable);
+
         return -1;
     } else {
         rewind(userTable);
@@ -78,6 +86,7 @@ int userRepositoryExistsByUsername(char username[50]) {
         }
     }
     fclose(userTable);
+
     return exists;
 }
 
@@ -87,6 +96,42 @@ int userRepositorySaveUser(User user) {
     userTable = fopen("../tables/User.txt", "a");
     fprintf(userTable, "%i %s %s %i\n", user.id, user.username, user.password, user.role);
     fclose(userTable);
+
+    return 1;
+}
+
+int userRepositoryUpdateUserPassword(User user) {
+	User dbUser;
+    FILE * userTable;
+    FILE * newUserTable;
+
+    userTable = fopen("../tables/User.txt", "r");
+
+    fseek(userTable, 0, SEEK_END);
+
+    if (ftell(userTable) == 0) {
+        fclose(userTable);
+
+        return -1;
+    } else {
+        newUserTable = fopen("../tables/newUser.txt", "w");
+        rewind(userTable);
+
+        while(!feof(userTable)) {
+            fscanf(userTable, "%i %s %s %i\n", &dbUser.id, dbUser.username, dbUser.password, &dbUser.role);
+
+            if (user.id == dbUser.id) {
+                fprintf(newUserTable, "%i %s %s %i\n", user.id, user.username, user.password, user.role);
+            } else {
+                fprintf(newUserTable, "%i %s %s %i\n", dbUser.id, dbUser.username, dbUser.password, dbUser.role);
+            }
+        }
+    }
+    fclose(userTable);
+    fclose(newUserTable);
+
+    system("del ..\\tables\\User.txt");
+    system("rename ..\\tables\\newUser.txt User.txt");
 
     return 1;
 }

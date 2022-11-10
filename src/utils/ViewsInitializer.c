@@ -1,7 +1,15 @@
-void showCloseView();
+void redirectTo();
+void show();
+void showChangeNameView();
+void showChangePasswordView();
+void showClientsPurchasesView();
+void showExitView();
 void showLoginView();
+void showLogoutView();
 void showMainView();
+void showMainWorkerView();
+void showNexusView();
 void showRegisterView();
 void showSplashView();
 void showWelcomeView();
-void showCurrentView();
+void showWorkerProfileView();
