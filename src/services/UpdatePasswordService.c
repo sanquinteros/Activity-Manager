@@ -1,6 +1,6 @@
-char * changePasswordServiceValidatePassword(char * password) {
+void updatePasswordServiceValidatePassword(char password[30]) {
     int passwordIsInvalid = 1;
-    char validationPassword[50];
+    char validationPassword[30];
 
     while (passwordIsInvalid == 1) {
         printf("Confirm your password: ");
@@ -13,20 +13,17 @@ char * changePasswordServiceValidatePassword(char * password) {
             scanf("%s", password);
         }
     }
-    return password;
 }
 
-char * changePasswordServiceGetPassword() {
-    char password[50];
-
+void updatePasswordServiceSetPassword(char password[30]) {
 	printf("Enter your new password: ");
     scanf("%s", password);
 
-	return changePasswordServiceValidatePassword(password);
+    updatePasswordServiceValidatePassword(password);
 }
 
 
-void changePasswordServiceChangePassword(User * user) {
-    strcpy(user->password, changePasswordServiceGetPassword());
-    userRepositoryUpdateUserPassword(* user);
+void updatePasswordServiceUpdatePassword(User * user) {
+    updatePasswordServiceSetPassword(user->password);
+    userRepositoryUpdateUser(* user);
 }

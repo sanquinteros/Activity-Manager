@@ -17,10 +17,9 @@
 #include "repository/UserRepository.c"
 
 #include "services/RegisterService.c"
-#include "services/ChangePasswordService.c"
+#include "services/UpdatePasswordService.c"
+#include "services/UpdateUsernameService.c"
 
-#include "views/ChangeNameView.c"
-#include "views/ChangePasswordView.c"
 #include "views/ClientsPurchasesView.c"
 #include "views/ExitView.c"
 #include "views/LoginView.c"
@@ -31,6 +30,8 @@
 #include "views/RedirectView.c"
 #include "views/RegisterView.c"
 #include "views/SplashView.c"
+#include "views/UpdateNameView.c"
+#include "views/UpdatePasswordView.c"
 #include "views/WelcomeView.c"
 #include "views/WorkerView.c"
 

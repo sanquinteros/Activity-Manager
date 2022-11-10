@@ -15,7 +15,6 @@ void showLoginView() {
     currentUser = userRepositoryFindUser(constructUserFromLogin(getLogin()));
     if (currentUser.id == -1) {
         printf("Your credentials are invalid!\n");
-        sleep(REDIRECT_TIME);
         redirectTo(LOGIN_VIEW);
     } else {
         show(MAIN_VIEW);

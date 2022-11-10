@@ -26,10 +26,8 @@ void showRegisterView() {
 
     if (userWasCreated == 1) {
         printf("You have been registered sucessfully!\n");
-        sleep(REDIRECT_TIME);
     } else {
         printf("An unexpected error occour, your user was not created!\n");
-        sleep(REDIRECT_TIME);
     }
     redirectTo(WELCOME_VIEW);
 }

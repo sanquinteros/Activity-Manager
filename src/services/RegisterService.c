@@ -14,7 +14,7 @@ Register registerServiceValidateUsername(Register rregister) {
 
 Register registerServiceValidatePassword(Register rregister) {
     int passwordIsInvalid = 1;
-    char validationPassword[50];
+    char validationPassword[30];
 
     while (passwordIsInvalid == 1) {
         printf("Confirm your password: ");

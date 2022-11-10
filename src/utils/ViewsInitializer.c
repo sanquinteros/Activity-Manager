@@ -1,7 +1,5 @@
 void redirectTo();
 void show();
-void showChangeNameView();
-void showChangePasswordView();
 void showClientsPurchasesView();
 void showExitView();
 void showLoginView();
@@ -12,4 +10,6 @@ void showNexusView();
 void showProfileView();
 void showRegisterView();
 void showSplashView();
+void showUpdateNameView();
+void showUpdatePasswordView();
 void showWelcomeView();

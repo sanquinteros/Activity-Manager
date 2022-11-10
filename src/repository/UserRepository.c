@@ -100,7 +100,7 @@ int userRepositorySaveUser(User user) {
     return 1;
 }
 
-int userRepositoryUpdateUserPassword(User user) {
+int userRepositoryUpdateUser(User user) {
 	User dbUser;
     FILE * userTable;
     FILE * newUserTable;

@@ -2,11 +2,11 @@ void show(int view){
     system("cls");
 
     switch (view) {
-        case CHANGENAME_VIEW:
-            showChangeNameView();
+        case UPDATENAME_VIEW:
+            showUpdateNameView();
             break;
-        case CHANGEPASSWORD_VIEW:
-            showChangePasswordView();
+        case UPDATEPASSWORD_VIEW:
+            showUpdatePasswordView();
             break;
         case CLIENTSPURCHASES_VIEW:
             showClientsPurchasesView();

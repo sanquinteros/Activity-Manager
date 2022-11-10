@@ -1,7 +1,7 @@
 typedef struct User {
     int id;
     char username[50];
-    char password[50];
+    char password[30];
     int role;
 } User;
 

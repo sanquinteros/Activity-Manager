@@ -1,14 +1,15 @@
 void redirectTo(int view) {
+    sleep(REDIRECT_TIME);
     system("cls");
 
     char windowName[18];
 
     switch(view) {
-        case CHANGENAME_VIEW:
-            strcpy(windowName, "CHANGE NAME");
+        case UPDATENAME_VIEW:
+            strcpy(windowName, "UPDATE NAME");
             break;
-        case CHANGEPASSWORD_VIEW:
-            strcpy(windowName, "CHANGE PASSWORD");
+        case UPDATEPASSWORD_VIEW:
+            strcpy(windowName, "UPDATE PASSWORD");
             break;
         case CLIENTSPURCHASES_VIEW:
             strcpy(windowName, "CLIENTS PURCHASES");
@@ -39,8 +40,9 @@ void redirectTo(int view) {
             strcpy(windowName, "WELCOME");
             break;
     }
-
     printf("You are being redirected to the \"%s\" window.\n", windowName);
+
     sleep(REDIRECT_TIME);
+
     show(view);
 }
