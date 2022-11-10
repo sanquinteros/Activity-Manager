@@ -4,3 +4,13 @@ void popInvalidViewMessage() {
     printf("You have selected an invalid view.\n");
     sleep(REDIRECT_TIME);
 }
+
+char * getRoleName(int role) {
+    if (role == ADMIN_ROLE) {
+        return "ADMINISTRATOR";
+    } else if (role == CLIENT_ROLE) {
+        return "CLIENT";
+    } else {
+        return "WORKER";
+    }
+}

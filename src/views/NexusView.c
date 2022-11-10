@@ -26,6 +26,9 @@ void show(int view){
         case MAINWORKER_VIEW:
             showMainWorkerView();
             break;
+        case PROFILE_VIEW:
+            showProfileView();
+            break;
         case REGISTER_VIEW:
             showRegisterView();
             break;
@@ -34,9 +37,6 @@ void show(int view){
             break;
         case WELCOME_VIEW:
             showWelcomeView();
-            break;
-        case WORKERPROFILE_VIEW:
-            showWorkerProfileView();
             break;
     }
 }

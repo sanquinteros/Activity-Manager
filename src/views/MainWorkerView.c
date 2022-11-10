@@ -11,7 +11,7 @@ void showMainWorkerView() {
     if (selectedView == 1) {
         show(CLIENTSPURCHASES_VIEW);
     } else if (selectedView == 2) {
-        show(WORKERPROFILE_VIEW);
+        show(PROFILE_VIEW);
     } else if (selectedView == 3) {
         show(LOGOUT_VIEW);
     } else {

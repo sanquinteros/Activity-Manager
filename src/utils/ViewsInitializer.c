@@ -9,7 +9,7 @@ void showLogoutView();
 void showMainView();
 void showMainWorkerView();
 void showNexusView();
+void showProfileView();
 void showRegisterView();
 void showSplashView();
 void showWelcomeView();
-void showWorkerProfileView();
