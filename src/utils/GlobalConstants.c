@@ -5,11 +5,11 @@
 #define LOGIN_VIEW 5
 #define LOGOUT_VIEW 6
 #define MAIN_VIEW 7
-#define MAINWORKER_VIEW 8
-#define PROFILE_VIEW 9
-#define REGISTER_VIEW 10
-#define SPLASH_VIEW 11
-#define WELCOME_VIEW 12
+#define PROFILE_VIEW 8
+#define REGISTER_VIEW 9
+#define SPLASH_VIEW 10
+#define WELCOME_VIEW 11
+#define WORKER_VIEW 12
 
 #define ADMIN_ROLE 1
 #define CLIENT_ROLE 2

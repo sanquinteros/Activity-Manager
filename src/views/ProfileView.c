@@ -14,7 +14,7 @@ void showProfileView() {
     } else if (selectedView == 2) {
         show(CHANGEPASSWORD_VIEW);
     } else if (selectedView == 3) {
-        show(MAINWORKER_VIEW);
+        show(MAIN_VIEW);
     } else {
         popInvalidViewMessage();
         redirectTo(PROFILE_VIEW);

@@ -7,7 +7,7 @@ void showExitView();
 void showLoginView();
 void showLogoutView();
 void showMainView();
-void showMainWorkerView();
+void showWorkerView();
 void showNexusView();
 void showProfileView();
 void showRegisterView();

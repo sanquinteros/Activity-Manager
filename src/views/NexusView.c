@@ -21,10 +21,8 @@ void show(int view){
             showLogoutView();
             break;
         case MAIN_VIEW:
+        case WORKER_VIEW:
             showMainView();
-            break;
-        case MAINWORKER_VIEW:
-            showMainWorkerView();
             break;
         case PROFILE_VIEW:
             showProfileView();

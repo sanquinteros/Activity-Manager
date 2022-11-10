@@ -22,8 +22,8 @@ void redirectTo(int view) {
         case LOGOUT_VIEW:
             strcpy(windowName, "LOGOUT");
             break;
-        case MAINWORKER_VIEW:
         case MAIN_VIEW:
+        case WORKER_VIEW:
             strcpy(windowName, "MAIN");
             break;
         case PROFILE_VIEW:

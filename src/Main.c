@@ -26,13 +26,13 @@
 #include "views/LoginView.c"
 #include "views/LogoutView.c"
 #include "views/MainView.c"
-#include "views/MainWorkerView.c"
 #include "views/NexusView.c"
 #include "views/ProfileView.c"
 #include "views/RedirectView.c"
 #include "views/RegisterView.c"
 #include "views/SplashView.c"
 #include "views/WelcomeView.c"
+#include "views/WorkerView.c"
 
 int main() {
     show(SPLASH_VIEW);
