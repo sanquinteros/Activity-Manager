@@ -16,6 +16,7 @@
 
 #include "repository/UserRepository.c"
 
+#include "services/LogoutService.c"
 #include "services/RegisterService.c"
 #include "services/UpdatePasswordService.c"
 #include "services/UpdateUsernameService.c"
