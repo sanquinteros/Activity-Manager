@@ -1,21 +1,11 @@
-Login getLogin() {
-    Login login;
-
-	printf("Enter your name: ");
-	scanf("%s", login.username);
-	printf("Enter your password: ");
-	scanf("%s", login.password);
-
-	return login;
-}
-
 void showLoginView() {
 	printf("You are in the \"LOGIN\" window.\n");
 
-    currentUser = userRepositoryFindUser(constructUserFromLogin(getLogin()));
+    loginServiceAuthenticateUser(&currentUser);
+
     if (currentUser.id == -1) {
         printf("Your credentials are invalid!\n");
-        redirectTo(LOGIN_VIEW);
+        redirectTo(WELCOME_VIEW);
     } else {
         show(MAIN_VIEW);
     }

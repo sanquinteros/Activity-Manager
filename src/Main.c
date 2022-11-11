@@ -23,6 +23,7 @@
 #include "services/CreateRequestService.c"
 #include "services/CurrentRequestsService.c"
 #include "services/DeleteRequestService.c"
+#include "services/LoginService.c"
 #include "services/LogoutService.c"
 #include "services/RegisterService.c"
 #include "services/UpdatePasswordService.c"
