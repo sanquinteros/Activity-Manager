@@ -7,6 +7,7 @@ void showWelcomeView() {
 	printf("Enter [3] if you want to close the software.\n");
     printf("Enter here: ");
 	scanf("%i", &selectedView);
+	getchar();
 
     if (selectedView == 1) {
         show(LOGIN_VIEW);

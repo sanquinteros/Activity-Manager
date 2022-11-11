@@ -89,7 +89,7 @@ int userRepositoryCreateUser(User user) {
     FILE *userTable;
 
     userTable = fopen("../tables/User.txt", "a");
-    fprintf(userTable, "%i %s %s %i\n", user.id, user.username, user.password, user.role);
+    fprintf(userTable, "%i %s %s %i\n", (userRepositoryGetLastUserId() + 1), user.username, user.password, user.role);
     fclose(userTable);
 
     return 1;
@@ -116,7 +116,7 @@ int userRepositoryUpdateUser(User user) {
             fscanf(userTable, "%i %s %s %i\n", &dbUser.id, dbUser.username, dbUser.password, &dbUser.role);
 
             if (user.id == dbUser.id) {
-                fprintf(newUserTable, "%i %s %s %i\n", user.id, user.username, user.password, user.role);
+                fprintf(newUserTable, "%i %s %s %i\n", dbUser.id, dbUser.username, user.password, dbUser.role);
             } else {
                 fprintf(newUserTable, "%i %s %s %i\n", dbUser.id, dbUser.username, dbUser.password, dbUser.role);
             }

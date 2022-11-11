@@ -2,11 +2,14 @@ void show(int view){
     system("cls");
 
     switch (view) {
-        case UPDATENAME_VIEW:
-            showUpdateNameView();
+        case CREATEREQUEST_VIEW:
+            showCreateRequestView();
             break;
-        case UPDATEPASSWORD_VIEW:
-            showUpdatePasswordView();
+        case CURRENTREQUESTS_VIEW:
+            showCurrentRequestsView();
+            break;
+        case DELETEREQUEST_VIEW:
+            showDeleteRequestView();
             break;
         case EXIT_VIEW:
             showExitView();
@@ -18,6 +21,7 @@ void show(int view){
             showLogoutView();
             break;
         case MAIN_VIEW:
+        case CLIENT_VIEW:
         case WORKER_VIEW:
             showMainView();
             break;
@@ -30,8 +34,17 @@ void show(int view){
         case REQUESTFORWORKER_VIEW:
             showRequestForWorkerView();
             break;
+        case REQUESTMENU_VIEW:
+            showRequestMenuView();
+            break;
         case SPLASH_VIEW:
             showSplashView();
+            break;
+        case UPDATENAME_VIEW:
+            showUpdateNameView();
+            break;
+        case UPDATEPASSWORD_VIEW:
+            showUpdatePasswordView();
             break;
         case WELCOME_VIEW:
             showWelcomeView();

@@ -40,6 +40,7 @@ Register registerServiceValidateRole(Register rregister) {
             printf("You entered role [%i], which is an invalid role.\n", rregister.role);
             printf("Enter your role: ");
             scanf("%i", &rregister.role);
+	        getchar();
         }
     }
     return rregister;

@@ -1,13 +1,13 @@
-void updatePasswordServiceValidatePassword(char password[30]) {
-    int passwordIsInvalid = 1;
+void updatePasswordServiceValidatePassword(char password[]) {
+    int passwordsMatch = 0;
     char validationPassword[30];
 
-    while (passwordIsInvalid == 1) {
+    while (passwordsMatch != 1) {
         printf("Confirm your password: ");
         scanf("%s", validationPassword);
 
         if (strcmp(password, validationPassword) == 0) {
-            passwordIsInvalid = 0;
+            passwordsMatch = 1;
         } else {
             printf("The passwords don't match, enter you new password again: ");
             scanf("%s", password);
@@ -22,8 +22,7 @@ void updatePasswordServiceSetPassword(char password[30]) {
     updatePasswordServiceValidatePassword(password);
 }
 
-
-void updatePasswordServiceUpdatePassword(User * user) {
-    updatePasswordServiceSetPassword(user->password);
-    userRepositoryUpdateUser(* user);
+void updatePasswordServiceUpdatePassword() {
+    updatePasswordServiceSetPassword(currentUser.password);
+    userRepositoryUpdateUser(currentUser);
 }

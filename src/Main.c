@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <conio.h>
 
 #include "utils/GlobalConstants.c"
 #include "utils/GlobalFunctions.c"
@@ -19,12 +20,18 @@
 #include "repository/UserRepository.c"
 
 #include "services/ClientRequestService.c"
+#include "services/CreateRequestService.c"
+#include "services/CurrentRequestsService.c"
+#include "services/DeleteRequestService.c"
 #include "services/LogoutService.c"
 #include "services/RegisterService.c"
 #include "services/UpdatePasswordService.c"
 #include "services/UpdateUsernameService.c"
 
-#include "views/RequestForWorkerView.c"
+#include "views/ClientView.c"
+#include "views/CreateRequestView.c"
+#include "views/CurrentRequestsView.c"
+#include "views/DeleteRequestView.c"
 #include "views/ExitView.c"
 #include "views/LoginView.c"
 #include "views/LogoutView.c"
@@ -33,6 +40,8 @@
 #include "views/ProfileView.c"
 #include "views/RedirectView.c"
 #include "views/RegisterView.c"
+#include "views/RequestForWorkerView.c"
+#include "views/RequestMenuView.c"
 #include "views/SplashView.c"
 #include "views/UpdateNameView.c"
 #include "views/UpdatePasswordView.c"

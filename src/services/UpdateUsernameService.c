@@ -18,7 +18,7 @@ void updateUsernameServiceSetUsername(char username[50]) {
     updateUsernameServiceValidateUsername(username);
 }
 
-void updateUsernameServiceUpdateUsername(User * user) {
-    updateUsernameServiceSetUsername(user->username);
-    userRepositoryUpdateUser(* user);
+void updateUsernameServiceUpdateUsername() {
+    updateUsernameServiceSetUsername(currentUser.username);
+    userRepositoryUpdateUser(currentUser);
 }

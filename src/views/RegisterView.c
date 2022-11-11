@@ -12,6 +12,8 @@ Register getRegister() {
     printf("If you want to register as a \"Worker\", enter [%i].\n", WORKER_ROLE);
     printf("Enter your role: ");
     scanf("%i", &rregister.role);
+	getchar();
+
     rregister = registerServiceValidateRole(rregister);
 
     return rregister;
@@ -20,9 +22,7 @@ Register getRegister() {
 void showRegisterView() {
 	printf("You are in the \"REGISTER\" window.\n");
 
-    Register rregister = getRegister();
-    User user = constructUserFromRegister(userRepositoryGetLastUserId() + 1, rregister);
-    int userWasCreated = userRepositoryCreateUser(user);
+    int userWasCreated = userRepositoryCreateUser(constructUserFromRegister(getRegister()));
 
     if (userWasCreated == 1) {
         printf("You have been registered sucessfully!\n");

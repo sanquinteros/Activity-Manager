@@ -6,17 +6,21 @@ void showCurrentRequestForWorker() {
     if (clientRequest.id == -1) {
         printf("Currently there is not a client request you can work on.\n");
     } else {
-        char response;
+        int response;
 
-        printf("Your current request is: \n%s\n\n", clientRequest.request);
-        printf("Did you complete this request? [y/n] : ");
-        scanf("%c", response);
+        printf("Request description: %s\n\n", clientRequest.request);
+        printf("Enter [1] if you completed the request.\n");
+        printf("Enter [2] if you are working on it.\n");
+        printf("Enter here: ");
+        scanf("%i", &response);
         getchar();
 
-        if (response == 'y') {
+        if (response == 1) {
             clientRequest.requestStatus = DONE;
             clientRequestRepositoryUpdateRequest(clientRequest);
-            printf("This request was marked as finished.");
+            printf("This request was marked as finished.\n");
+        } else {
+            printf("Thank you for keeping on working on this request, the client appreciates it!\n");
         }
     }
 }

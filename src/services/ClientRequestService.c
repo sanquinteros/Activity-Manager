@@ -1,7 +1,7 @@
 ClientRequest clientRequestServiceGetCurrentClientRequest() {
     ClientRequest clientRequest;
 
-    clientRequest = clientRequestRepositoryFindCurrentRequestByWorker(currentUser.id);
+    clientRequest = clientRequestRepositoryFindCurrentRequestByWorkerId(currentUser.id);
 
     if (clientRequest.id == -1) {
         clientRequest = clientRequestRepositoryFindOldestPendingRequest();

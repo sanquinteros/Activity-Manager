@@ -8,6 +8,7 @@ void showProfileView() {
 	printf("Enter [3] if you want to go back to the \"MAIN\" window.\n");
     printf("Enter here: ");
 	scanf("%i", &selectedView);
+	getchar();
 
     if (selectedView == 1) {
 /*
@@ -16,7 +17,7 @@ void showProfileView() {
 
         function name -> show(UPDATENAME_VIEW);
 */
-        redirectTo(MAIN_VIEW);
+        redirectTo(PROFILE_VIEW);
     } else if (selectedView == 2) {
         show(UPDATEPASSWORD_VIEW);
         redirectTo(PROFILE_VIEW);

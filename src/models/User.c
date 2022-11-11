@@ -16,10 +16,10 @@ User constructUserFromLogin(Login login) {
     return user;
 }
 
-User constructUserFromRegister(int userId, Register rregister) {
+User constructUserFromRegister(Register rregister) {
     User user;
 
-    user.id = userId;
+    user.id = -1;
     strcpy(user.username, rregister.username);
     strcpy(user.password, rregister.password);
     user.role = rregister.role;
