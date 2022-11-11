@@ -1,7 +1,7 @@
 void showRequestMenuView() {
     int selectedView;
 
-	printf("You are in the \"REQUEST MENU\" window.\n");
+	printf("You are in the \"REQUEST MENU\" window.\n\n");
 	printf("Enter [1] if you want to see your current requests.\n");
 	printf("Enter [2] if you want to create a request.\n");
 	printf("Enter [3] if you want to delete a current request.\n");

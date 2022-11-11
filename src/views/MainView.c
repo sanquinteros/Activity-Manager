@@ -1,5 +1,5 @@
 void showMainView() {
-	printf("You are in the \"MAIN\" window.\n");
+	printf("You are in the \"MAIN\" window.\n\n");
 
     if (currentUser.role == ADMIN_ROLE) {
         printf("You are an \"Administrator\".\n");

@@ -1,5 +1,5 @@
 void showRegisterView() {
-	printf("You are in the \"REGISTER\" window.\n");
+	printf("You are in the \"REGISTER\" window.\n\n");
 
     registerServiceRegisterUser();
 

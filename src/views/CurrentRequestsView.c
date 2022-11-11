@@ -1,5 +1,5 @@
 void showCurrentRequestsView() {
-	printf("You are in the \"CURRENT REQUESTS\" window.\n");
+	printf("You are in the \"CURRENT REQUESTS\" window.\n\n");
 
     currentRequestsServicePrintCurrentRequests();
 

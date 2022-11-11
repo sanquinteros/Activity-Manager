@@ -1,5 +1,5 @@
 void showLoginView() {
-	printf("You are in the \"LOGIN\" window.\n");
+	printf("You are in the \"LOGIN\" window.\n\n");
 
     loginServiceAuthenticateUser(&currentUser);
 
