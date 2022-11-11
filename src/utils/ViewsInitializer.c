@@ -1,6 +1,6 @@
 void redirectTo();
 void show();
-void showClientsPurchasesView();
+void showRequestForWorkerView();
 void showExitView();
 void showLoginView();
 void showLogoutView();

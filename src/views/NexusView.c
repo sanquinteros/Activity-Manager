@@ -8,9 +8,6 @@ void show(int view){
         case UPDATEPASSWORD_VIEW:
             showUpdatePasswordView();
             break;
-        case CLIENTSPURCHASES_VIEW:
-            showClientsPurchasesView();
-            break;
         case EXIT_VIEW:
             showExitView();
             break;
@@ -29,6 +26,9 @@ void show(int view){
             break;
         case REGISTER_VIEW:
             showRegisterView();
+            break;
+        case REQUESTFORWORKER_VIEW:
+            showRequestForWorkerView();
             break;
         case SPLASH_VIEW:
             showSplashView();

@@ -9,19 +9,22 @@
 #include "dtos/Login.c"
 #include "dtos/Register.c"
 
+#include "models/ClientRequest.c"
 #include "models/User.c"
 
 #include "utils/GlobalStructsInitializer.c"
 #include "utils/ViewsInitializer.c"
 
+#include "repository/ClientRequestRepository.c"
 #include "repository/UserRepository.c"
 
+#include "services/ClientRequestService.c"
 #include "services/LogoutService.c"
 #include "services/RegisterService.c"
 #include "services/UpdatePasswordService.c"
 #include "services/UpdateUsernameService.c"
 
-#include "views/ClientsPurchasesView.c"
+#include "views/RequestForWorkerView.c"
 #include "views/ExitView.c"
 #include "views/LoginView.c"
 #include "views/LogoutView.c"

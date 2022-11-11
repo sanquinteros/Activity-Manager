@@ -2,7 +2,7 @@ void redirectTo(int view) {
     sleep(REDIRECT_TIME);
     system("cls");
 
-    char windowName[18];
+    char windowName[19];
 
     switch(view) {
         case UPDATENAME_VIEW:
@@ -10,9 +10,6 @@ void redirectTo(int view) {
             break;
         case UPDATEPASSWORD_VIEW:
             strcpy(windowName, "UPDATE PASSWORD");
-            break;
-        case CLIENTSPURCHASES_VIEW:
-            strcpy(windowName, "CLIENTS PURCHASES");
             break;
         case EXIT_VIEW:
             strcpy(windowName, "EXIT");
@@ -32,6 +29,9 @@ void redirectTo(int view) {
             break;
         case REGISTER_VIEW:
             strcpy(windowName, "REGISTER");
+            break;
+        case REQUESTFORWORKER_VIEW:
+            strcpy(windowName, "REQUEST FOR WORKER");
             break;
         case SPLASH_VIEW:
             strcpy(windowName, "SPLASH");
