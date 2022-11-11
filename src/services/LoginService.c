@@ -1,4 +1,4 @@
-Login getLogin() {
+Login getLoginFromUser() {
     Login login;
 
 	printf("Enter your name: ");
@@ -10,7 +10,7 @@ Login getLogin() {
 }
 
 void loginServiceAuthenticateUser(User * user) {
-    Login login = getLogin();
+    Login login = getLoginFromUser();
     User userFromLogin = constructUserFromLogin(login);
     *user = userRepositoryFindUser(userFromLogin);
 }
