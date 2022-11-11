@@ -21,14 +21,9 @@ User userRepositoryFindUser(User user) {
 
             if (strcmp(dbUser.username, user.username) == 0) {
                 if (strcmp(dbUser.password, user.password) == 0) {
-                    user.id = dbUser.id;
-                    strcpy(user.username, dbUser.username);
-                    strcpy(user.password, dbUser.password);
-                    user.role = dbUser.role;
-
                     fclose(userTable);
 
-                    return user;
+                    return dbUser;
                 }
             }
         }
