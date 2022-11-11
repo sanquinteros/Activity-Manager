@@ -3,5 +3,5 @@ void showUpdatePasswordView() {
 
 	updatePasswordServiceUpdatePassword();
 
-	printf("Your password was updated sucessfully.\n");
+	printf("Your password was successfully updated.\n");
 }

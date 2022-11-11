@@ -25,7 +25,7 @@ void showRegisterView() {
     int userWasCreated = userRepositoryCreateUser(constructUserFromRegister(getRegister()));
 
     if (userWasCreated == 1) {
-        printf("You have been registered successfully.\n");
+        printf("You have successfully been registered.\n");
     } else {
         printf("An unexpected error occour, your user was not created.\n");
     }

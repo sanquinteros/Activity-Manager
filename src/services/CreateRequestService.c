@@ -24,5 +24,5 @@ void createRequestServiceCreateRequest() {
 
     clientRequestRepositoryCreateRequest(clientRequest);
 
-    printf("You request was created successfully\n");
+    printf("You request was successfully created\n");
 }

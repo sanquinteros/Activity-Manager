@@ -1,6 +1,6 @@
 void showLogoutView() {
     logoutServiceLogoutUser();
-    printf("You have sucessfully logged out.\n");
+    printf("You have successfully logged out.\n");
 
     redirectTo(WELCOME_VIEW);
 }

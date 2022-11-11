@@ -10,7 +10,7 @@ void deleteRequestServiceDeleteRequest() {
     requestWasDeleted = clientRequestRepositoryDeleteRequest(id, currentUser.id);
 
     if (requestWasDeleted == 1) {
-        printf("Request was found and deleted sucessfully.\n");
+        printf("Request was successfully found and deleted.\n");
     } else {
         printf("An invalid identification number was provided, none requests were deleted.\n");
     }
