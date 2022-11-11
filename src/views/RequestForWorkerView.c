@@ -20,7 +20,7 @@ void showCurrentRequestForWorker() {
             clientRequestRepositoryUpdateRequest(clientRequest);
             printf("This request was marked as finished.\n");
         } else {
-            printf("Thank you for keeping on working on this request, the client appreciates it!\n");
+            printf("Thank you for keeping on working on this request, the client appreciates it.\n");
         }
     }
 }
