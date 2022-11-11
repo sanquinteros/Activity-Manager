@@ -4,7 +4,7 @@ Login getLoginFromUser() {
 	printf("Enter your name: ");
 	scanf("%s", login.username);
 	printf("Enter your password: ");
-	scanf("%s", login.password);
+	scanfPassword(login.password);
 
 	return login;
 }

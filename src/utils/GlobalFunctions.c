@@ -4,6 +4,17 @@ void popInvalidViewMessage() {
     printf("You have selected an invalid view.\n");
 }
 
+void scanfPassword(char * password) {
+    int counter = 0;
+
+    while((password[counter] = getch()) != 13) {
+        printf("*");
+        counter++;
+    }
+    printf("\n");
+    password[counter] = '\0';
+}
+
 char * getRoleName(int role) {
     if (role == ADMIN_ROLE) {
         return "ADMINISTRATOR";
