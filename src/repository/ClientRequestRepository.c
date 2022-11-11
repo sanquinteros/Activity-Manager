@@ -1,35 +1,3 @@
-ClientRequest clientRequestRepositoryFindRequestById(int id) {
-    ClientRequest dbClientRequest;
-    FILE *clientRequestTable;
-
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
-
-    fseek(clientRequestTable, 0, SEEK_END);
-
-    if (ftell(clientRequestTable) != 0) {
-        rewind(clientRequestTable);
-
-        while(!feof(clientRequestTable)) {
-            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
-
-            if (id == dbClientRequest.id) {
-                fclose(clientRequestTable);
-
-                return dbClientRequest;
-            }
-        }
-    }
-    dbClientRequest.id = -1;
-    dbClientRequest.requestStatus= -1;
-    dbClientRequest.workerId = -1;
-    dbClientRequest.clientId= -1;
-    strcpy(dbClientRequest.request, " ");
-
-    fclose(clientRequestTable);
-
-    return dbClientRequest;
-}
-
 int clientRequestRepositoryExistsCurrentByClientId(int clientId) {
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
@@ -93,6 +61,39 @@ ClientRequest clientRequestRepositoryFindCurrentRequestByWorkerId(int workerId) 
     return dbClientRequest;
 }
 
+ClientRequest clientRequestRepositoryFindOldestPendingRequest() {
+    ClientRequest dbClientRequest;
+    FILE *clientRequestTable;
+
+    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+
+    fseek(clientRequestTable, 0, SEEK_END);
+
+    if (ftell(clientRequestTable) != 0) {
+        rewind(clientRequestTable);
+
+        while(!feof(clientRequestTable)) {
+            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
+
+            if (PENDING == dbClientRequest.requestStatus) {
+                decodeSpaces(dbClientRequest.request);
+                fclose(clientRequestTable);
+
+                return dbClientRequest;
+            }
+        }
+    }
+    dbClientRequest.id = -1;
+    dbClientRequest.requestStatus= -1;
+    dbClientRequest.workerId = -1;
+    dbClientRequest.clientId= -1;
+    strcpy(dbClientRequest.request, " ");
+
+    fclose(clientRequestTable);
+
+    return dbClientRequest;
+}
+
 void clientRequestRepositoryPrintCurrentRequestsByClientId(int clientId) {
     ClientRequest dbClientRequest;
     FILE * clientRequestTable;
@@ -115,38 +116,6 @@ void clientRequestRepositoryPrintCurrentRequestsByClientId(int clientId) {
         }
     }
     fclose(clientRequestTable);
-}
-
-ClientRequest clientRequestRepositoryFindOldestPendingRequest() {
-    ClientRequest dbClientRequest;
-    FILE *clientRequestTable;
-
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
-
-    fseek(clientRequestTable, 0, SEEK_END);
-
-    if (ftell(clientRequestTable) != 0) {
-        rewind(clientRequestTable);
-
-        while(!feof(clientRequestTable)) {
-            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
-
-            if (PENDING == dbClientRequest.requestStatus) {
-                fclose(clientRequestTable);
-
-                return dbClientRequest;
-            }
-        }
-    }
-    dbClientRequest.id = -1;
-    dbClientRequest.requestStatus= -1;
-    dbClientRequest.workerId = -1;
-    dbClientRequest.clientId= -1;
-    strcpy(dbClientRequest.request, " ");
-
-    fclose(clientRequestTable);
-
-    return dbClientRequest;
 }
 
 int clientRequestRepositoryGetLastRequestId() {
