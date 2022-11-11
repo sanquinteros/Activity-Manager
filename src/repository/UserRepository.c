@@ -85,7 +85,7 @@ int userRepositoryExistsByUsername(char username[50]) {
     return exists;
 }
 
-int userRepositorySaveUser(User user) {
+int userRepositoryCreateUser(User user) {
     FILE *userTable;
 
     userTable = fopen("../tables/User.txt", "a");

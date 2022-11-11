@@ -22,7 +22,7 @@ void showRegisterView() {
 
     Register rregister = getRegister();
     User user = constructUserFromRegister(userRepositoryGetLastUserId() + 1, rregister);
-    int userWasCreated = userRepositorySaveUser(user);
+    int userWasCreated = userRepositoryCreateUser(user);
 
     if (userWasCreated == 1) {
         printf("You have been registered sucessfully!\n");
