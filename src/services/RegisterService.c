@@ -13,18 +13,18 @@ Register registerServiceValidateUsername(Register rregister) {
 }
 
 Register registerServiceValidatePassword(Register rregister) {
-    int passwordIsInvalid = 1;
+    int passwordsMatch = 0;
     char validationPassword[30];
 
-    while (passwordIsInvalid == 1) {
+    while (passwordsMatch != 1) {
         printf("Confirm your password: ");
-        scanf("%s", validationPassword);
+        scanfPassword(validationPassword);
         
         if (strcmp(rregister.password, validationPassword) == 0) {
-            passwordIsInvalid = 0;
+            passwordsMatch = 1;
         } else {
             printf("The passwords don't match, enter your password: ");
-            scanf("%s", rregister.password);
+            scanfPassword(rregister.password);
         }
     }
     return rregister;
@@ -53,7 +53,7 @@ Register getRegisterFromUser() {
     scanf("%s", rregister.username);
     rregister = registerServiceValidateUsername(rregister);
 	printf("Enter your password: ");
-	scanf("%s", rregister.password);
+	scanfPassword(rregister.password);
 	rregister = registerServiceValidatePassword(rregister);
     printf("If you want to register as an \"Administrator\", enter [%i].\n", ADMIN_ROLE);
     printf("If you want to register as a \"Client\", enter [%i].\n", CLIENT_ROLE);

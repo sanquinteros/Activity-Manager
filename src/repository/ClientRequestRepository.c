@@ -211,7 +211,13 @@ int clientRequestRepositoryDeleteRequest(int id, int clientId) {
 
             if (id == dbClientRequest.id) {
                 if (clientId == dbClientRequest.clientId) {
-                    deleted = 1;
+                    if (PENDING == dbClientRequest.requestStatus || PROCESSING == dbClientRequest.requestStatus) {
+                        deleted = 1;
+                    } else {
+                        fprintf(newClientRequestTable, "%i %i %i %i %s\n", dbClientRequest.id, dbClientRequest.requestStatus, dbClientRequest.workerId, dbClientRequest.clientId, dbClientRequest.request);
+                    }
+                } else {
+                    fprintf(newClientRequestTable, "%i %i %i %i %s\n", dbClientRequest.id, dbClientRequest.requestStatus, dbClientRequest.workerId, dbClientRequest.clientId, dbClientRequest.request);
                 }
             } else {
                 fprintf(newClientRequestTable, "%i %i %i %i %s\n", dbClientRequest.id, dbClientRequest.requestStatus, dbClientRequest.workerId, dbClientRequest.clientId, dbClientRequest.request);

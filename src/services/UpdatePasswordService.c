@@ -4,20 +4,20 @@ void updatePasswordServiceValidatePassword(char password[]) {
 
     while (passwordsMatch != 1) {
         printf("Confirm your password: ");
-        scanf("%s", validationPassword);
+	    scanfPassword(validationPassword);
 
         if (strcmp(password, validationPassword) == 0) {
             passwordsMatch = 1;
         } else {
             printf("The passwords don't match, enter you new password again: ");
-            scanf("%s", password);
+	        scanfPassword(password);
         }
     }
 }
 
 void updatePasswordServiceSetPassword(char password[30]) {
 	printf("Enter your new password: ");
-    scanf("%s", password);
+	scanfPassword(password);
 
     updatePasswordServiceValidatePassword(password);
 }
