@@ -31,7 +31,7 @@ char * getRequestStatusName(int status) {
     } else if (status == PROCESSING) {
         return "PROCESSING";
     } else {
-        return "DONE";
+        return "CONCLUDED";
     }
 }
 

@@ -22,6 +22,6 @@
 
 #define PENDING 1
 #define PROCESSING 2
-#define DONE 3
+#define CONCLUDED 3
 
 #define REDIRECT_TIME 3
