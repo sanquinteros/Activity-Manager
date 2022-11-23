@@ -14,6 +14,7 @@
 #include "models/User.c"
 
 #include "utils/GlobalStructsInitializer.c"
+#include "utils/GlobalVariablesInitializer.c"
 #include "utils/ViewsInitializer.c"
 
 #include "repository/ClientRequestRepository.c"

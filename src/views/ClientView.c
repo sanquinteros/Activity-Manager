@@ -1,6 +1,4 @@
 void showClientView() {
-    int selectedView;
-
 	printf("Enter [1] if you want to see the request menu.\n");
 	printf("Enter [2] if you want to see your profile.\n");
 	printf("Enter [3] if you want to log out.\n");

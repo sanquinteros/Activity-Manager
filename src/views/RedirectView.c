@@ -2,8 +2,6 @@ void redirectTo(int view) {
     sleep(REDIRECT_TIME);
     system("cls");
 
-    char windowName[19];
-
     switch(view) {
         case CREATEREQUEST_VIEW:
             strcpy(windowName, "CREATE REQUEST");
