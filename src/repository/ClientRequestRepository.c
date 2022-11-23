@@ -232,3 +232,112 @@ int clientRequestRepositoryDeleteRequest(int id, int clientId) {
 
     return deleted;
 }
+
+RequestData clientRequestRepositoryGetRequestData() {
+    RequestData requestData = (RequestData) {0, 0, 0, 0};
+    ClientRequest dbClientRequest;
+    FILE *clientRequestTable;
+
+    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+
+    fseek(clientRequestTable, 0, SEEK_END);
+
+    if (ftell(clientRequestTable) != 0) {
+        rewind(clientRequestTable);
+
+        while(!feof(clientRequestTable)) {
+            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
+
+            if (PENDING == dbClientRequest.requestStatus) {
+                requestData.pendingRequests++;
+            } else if (PROCESSING == dbClientRequest.requestStatus) {
+                requestData.processingRequests++;
+            } else {
+                requestData.concludedRequests++;
+            }
+            requestData.totalRequests++;
+        }
+    }
+    fclose(clientRequestTable);
+
+    return requestData;
+}
+
+int clientRequestRepositoryGetWorkingWorkers() {
+    int workingWorkers = 0;
+    ClientRequest dbClientRequest;
+    FILE *clientRequestTable;
+
+    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+
+    fseek(clientRequestTable, 0, SEEK_END);
+
+    if (ftell(clientRequestTable) != 0) {
+        rewind(clientRequestTable);
+
+        while(!feof(clientRequestTable)) {
+            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
+
+            if (PROCESSING == dbClientRequest.requestStatus) {
+                workingWorkers++;
+            }
+        }
+    }
+    fclose(clientRequestTable);
+
+    return workingWorkers;
+}
+
+void clientRequestRepositorySetConcludedRequestsForEachWorker(WorkerArray * workerArray) {
+    ClientRequest dbClientRequest;
+    FILE *clientRequestTable;
+
+    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+
+    fseek(clientRequestTable, 0, SEEK_END);
+
+    if (ftell(clientRequestTable) != 0) {
+        rewind(clientRequestTable);
+
+        while(!feof(clientRequestTable)) {
+            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
+
+            for (int counter = 0; counter < workerArray->length; counter++) {
+                if (dbClientRequest.workerId == workerArray->worker[counter].id) {
+                    if (CONCLUDED == dbClientRequest.requestStatus) {
+                        workerArray->worker[counter].concludedRequests++;
+
+                        counter = workerArray->length;
+                    }
+                }
+            }
+        }
+    }
+    fclose(clientRequestTable);
+}
+
+void clientRequestRepositorySetRequestQuantityForEachClient(ClientArray * clientArray) {
+    ClientRequest dbClientRequest;
+    FILE *clientRequestTable;
+
+    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+
+    fseek(clientRequestTable, 0, SEEK_END);
+
+    if (ftell(clientRequestTable) != 0) {
+        rewind(clientRequestTable);
+
+        while(!feof(clientRequestTable)) {
+            fscanf(clientRequestTable, "%i %i %i %i %s\n", &dbClientRequest.id, &dbClientRequest.requestStatus, &dbClientRequest.workerId, &dbClientRequest.clientId, dbClientRequest.request);
+
+            for (int counter = 0; counter < clientArray->length; counter++) {
+                if (dbClientRequest.clientId == clientArray->client[counter].id) {
+                    clientArray->client[counter].madeRequests++;
+
+                    counter = clientArray->length;
+                }
+            }
+        }
+    }
+    fclose(clientRequestTable);
+}

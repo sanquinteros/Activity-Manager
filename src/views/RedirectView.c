@@ -3,6 +3,21 @@ void redirectTo(int view) {
     system("cls");
 
     switch(view) {
+        case ADMINTOOLS_VIEW:
+            strcpy(windowName, "ADMIN TOOLS");
+            break;
+        case BESTWORSTCLIENTSSTATISTICS_VIEW:
+            strcpy(windowName, "BEST WORST CLIENTS STATISTICS VIEW");
+            break;
+        case BESTWORSTWORKERSSTATISTICS_VIEW:
+            strcpy(windowName, "BEST WORST WORKERS STATISTICS VIEW");
+            break;
+        case CLIENTDIVISION_VIEW:
+            strcpy(windowName, "CLIENT DIVISION");
+            break;
+        case CLIENTSSTATISTICS_VIEW:
+            strcpy(windowName, "CLIENT STATISTICS");
+            break;
         case CREATEREQUEST_VIEW:
             strcpy(windowName, "CREATE REQUEST");
             break;
@@ -15,6 +30,9 @@ void redirectTo(int view) {
         case EXIT_VIEW:
             strcpy(windowName, "EXIT");
             break;
+        case FIREWORKER_VIEW:
+            strcpy(windowName, "FIRE SOME WORKER");
+            break;
         case LOGIN_VIEW:
             strcpy(windowName, "LOGIN");
             break;
@@ -22,6 +40,7 @@ void redirectTo(int view) {
             strcpy(windowName, "LOGOUT");
             break;
         case MAIN_VIEW:
+        case ADMIN_VIEW:
         case CLIENT_VIEW:
         case WORKER_VIEW:
             strcpy(windowName, "MAIN");
@@ -31,6 +50,9 @@ void redirectTo(int view) {
             break;
         case REGISTER_VIEW:
             strcpy(windowName, "REGISTER");
+            break;
+        case REQUESTDATA_VIEW:
+            strcpy(windowName, "REQUEST DATA");
             break;
         case REQUESTFORWORKER_VIEW:
             strcpy(windowName, "REQUEST FOR WORKER");
@@ -49,6 +71,9 @@ void redirectTo(int view) {
             break;
         case WELCOME_VIEW:
             strcpy(windowName, "WELCOME");
+            break;
+        case WORKERDIVISION_VIEW:
+            strcpy(windowName, "WORKER DIVISON");
             break;
     }
     printf("You are being redirected to the \"%s\" window.\n", windowName);

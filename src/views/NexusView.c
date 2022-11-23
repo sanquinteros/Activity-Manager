@@ -2,6 +2,21 @@ void show(int view){
     system("cls");
 
     switch (view) {
+        case ADMINTOOLS_VIEW:
+            showAdminToolsView();
+            break;
+        case BESTWORSTCLIENTSSTATISTICS_VIEW:
+            showBestWorstClientsStatisticsView();
+            break;
+        case BESTWORSTWORKERSSTATISTICS_VIEW:
+            showBestWorstWorkersStatisticsView();
+            break;
+        case CLIENTDIVISION_VIEW:
+            showClientDivisionView();
+            break;
+        case CLIENTSSTATISTICS_VIEW:
+            showClientsStatisticsView();
+            break;
         case CREATEREQUEST_VIEW:
             showCreateRequestView();
             break;
@@ -14,6 +29,9 @@ void show(int view){
         case EXIT_VIEW:
             showExitView();
             break;
+        case FIREWORKER_VIEW:
+            showFireWorkerView();
+            break;
         case LOGIN_VIEW:
             showLoginView();
             break;
@@ -21,6 +39,7 @@ void show(int view){
             showLogoutView();
             break;
         case MAIN_VIEW:
+        case ADMIN_VIEW:
         case CLIENT_VIEW:
         case WORKER_VIEW:
             showMainView();
@@ -30,6 +49,9 @@ void show(int view){
             break;
         case REGISTER_VIEW:
             showRegisterView();
+            break;
+        case REQUESTDATA_VIEW:
+            showRequestDataView();
             break;
         case REQUESTFORWORKER_VIEW:
             showRequestForWorkerView();
@@ -48,6 +70,12 @@ void show(int view){
             break;
         case WELCOME_VIEW:
             showWelcomeView();
+            break;
+        case WORKERSSTATISTICS_VIEW:
+            showWorkersStatisticsView();
+            break;
+        case WORKERDIVISION_VIEW:
+            showWorkerDivisionView();
             break;
     }
 }
