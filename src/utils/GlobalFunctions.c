@@ -1,7 +1,7 @@
 void popInvalidViewMessage() {
     system("cls");
 
-    printf("You have selected an invalid view.\n");
+    printf("You have selected an invalid window.\n");
 }
 
 void scanfPassword(char * password) {
@@ -17,11 +17,11 @@ void scanfPassword(char * password) {
 
 char * getRoleName(int role) {
     if (role == ADMIN_ROLE) {
-        return "ADMINISTRATOR";
+        return "an \"ADMINISTRATOR\"";
     } else if (role == CLIENT_ROLE) {
-        return "CLIENT";
+        return "a \"CLIENT\"";
     } else {
-        return "WORKER";
+        return "a \"WORKER\"";
     }
 }
 
