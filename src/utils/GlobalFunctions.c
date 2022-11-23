@@ -6,11 +6,30 @@ void popInvalidViewMessage() {
 
 void scanfPassword(char * password) {
     int counter = 0;
+    int character = 0;
 
-    while((password[counter] = getch()) != 13) {
-        printf("*");
-        counter++;
-    }
+    do {
+        character = getch();
+
+        if (character != 13 && character != 32) {
+            if (character == 8) {
+                if (counter != 0) {
+                    counter--;
+                    printf("\b \b");
+                }
+            } else {
+                if (counter < 29) {
+                    password[counter] = character;
+                    printf("*");
+                    counter++;
+                } else {
+                    password[counter] = '\0';
+                    printf("\nPassword can not be longer than 29 characters.\nThe password saved is \"%s\".", password);
+                    character = 13;
+                }
+            }
+        }
+    } while (character != 13);
     printf("\n");
     password[counter] = '\0';
 }
