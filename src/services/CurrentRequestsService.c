@@ -6,6 +6,6 @@ void currentRequestsServicePrintCurrentRequests() {
     if (exists == 1) {
         clientRequestRepositoryPrintCurrentRequestsByClientId(currentUser.id);
     } else {
-        printf("You have not created any requests that are currently pending or being processed.\n");
+        printf("You have not created any requests that are currently pending or being processed.\n\n");
     }
 }

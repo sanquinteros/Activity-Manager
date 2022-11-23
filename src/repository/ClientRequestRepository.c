@@ -110,7 +110,7 @@ void clientRequestRepositoryPrintCurrentRequestsByClientId(int clientId) {
 
             if (clientId == dbClientRequest.clientId) {
                 if (PENDING == dbClientRequest.requestStatus || PROCESSING == dbClientRequest.requestStatus) {
-                    printf("Request identification number: %i\nRequest status: %s\nRequest description:%s\n\n", dbClientRequest.id, getRequestStatusName(dbClientRequest.requestStatus), decodeSpaces(dbClientRequest.request));
+                    printf("Request identification number: %i\nRequest status: %s\nRequest description: %s\n\n", dbClientRequest.id, getRequestStatusName(dbClientRequest.requestStatus), decodeSpaces(dbClientRequest.request));
                 }
             }
         }
