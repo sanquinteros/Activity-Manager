@@ -8,6 +8,7 @@ void showWorkerView() {
 
     if (selectedView == 1) {
         show(REQUESTFORWORKER_VIEW);
+        show(MAIN_VIEW);
     } else if (selectedView == 2) {
         show(PROFILE_VIEW);
     } else if (selectedView == 3) {

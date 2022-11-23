@@ -3,5 +3,6 @@ void showRequestForWorkerView() {
 
 	requestForWorkerServiceInformRequest();
 
-    redirectTo(MAIN_VIEW);
+	printf("Press [any key] to go back to the \"MAIN\" window.\n");
+	getch();
 }
