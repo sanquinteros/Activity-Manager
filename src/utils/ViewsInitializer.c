@@ -5,6 +5,7 @@ void showBestWorstWorkersStatisticsView();
 void showClientDivisionView();
 void showClientsStatisticsView();
 void showClientView();
+void showConfigView();
 void showCreateRequestView();
 void showCurrentRequestsView();
 void showDeleteRequestView();

@@ -10,14 +10,14 @@ void showClientDivisionView() {
 
     if (selectedView == 1) {
         show(CLIENTSSTATISTICS_VIEW);
-        show(WORKERDIVISION_VIEW);
+        show(CLIENTDIVISION_VIEW);
     } else if (selectedView == 2) {
         show(BESTWORSTCLIENTSSTATISTICS_VIEW);
-        show(WORKERDIVISION_VIEW);
+        show(CLIENTDIVISION_VIEW);
     } else if (selectedView == 3) {
         show(ADMINTOOLS_VIEW);
     } else {
         popInvalidViewMessage();
-        redirectTo(WORKERDIVISION_VIEW);
+        redirectTo(CLIENTDIVISION_VIEW);
     }
 }

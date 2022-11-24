@@ -61,14 +61,16 @@ WorkerArray bestWorstWorkersStatisticsServiceGetWorstWorkers(WorkerArray sortedW
 }
 
 float bestWorstWorkersStatisticsServiceGetPopulationWorkingEfficiency(WorkerArray workerArray) {
-    int concludedRequests = 0;
-    float averageWorkingEfficiency;
+    float averageWorkingEfficiency = 0;
 
-    for (int counter = 0; counter < workerArray.length; counter++) {
-        concludedRequests = concludedRequests + workerArray.worker[counter].concludedRequests;
+    if (workerArray.length != 0) {
+        int concludedRequests = 0;
+
+        for (int counter = 0; counter < workerArray.length; counter++) {
+            concludedRequests = concludedRequests + workerArray.worker[counter].concludedRequests;
+        }
+        averageWorkingEfficiency = (float) concludedRequests / workerArray.length;
     }
-    averageWorkingEfficiency = (float) concludedRequests / workerArray.length;
-
     return averageWorkingEfficiency;
 }
 
@@ -132,7 +134,6 @@ void bestWorstWorkersStatisticsServicePrintBestAndWorstWorkers() {
         } else {
             bestWorstWorkersStatisticsServicePrintfWorstWorker(worstWorkerArray.worker[0], averageWorkingEfficiency);
         }
-        
     	free(worstWorkerArray.worker);
     }
     free(workerArray.worker);

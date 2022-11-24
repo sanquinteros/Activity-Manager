@@ -9,25 +9,30 @@ ClientArray clientsStatisticsServiceGetAllClients() {
 }
 
 float clientsStatisticsServiceGetAverageRequestQuantity(ClientArray clientArray) {
-    int madeRequests = 0;
-    float averageRequestQuantity;
+    float averageRequestQuantity = 0;
 
-    for (int counter = 0; counter < clientArray.length; counter++) {
-        madeRequests = madeRequests + clientArray.client[counter].madeRequests;
+    if (clientArray.length != 0) {
+        int madeRequests = 0;
+
+        for (int counter = 0; counter < clientArray.length; counter++) {
+            madeRequests = madeRequests + clientArray.client[counter].madeRequests;
+        }
+        averageRequestQuantity = (float) madeRequests / clientArray.length;
     }
-    averageRequestQuantity = (float) madeRequests / clientArray.length;
-
     return averageRequestQuantity;
 }
 
 void clientsStatisticsServicePrintEachClientStatistics(ClientArray clientArray, float averageRequestQuantity) {
     for (int counter = 0; counter < clientArray.length; counter++) {
-        float clientRequestQuantity = clientArray.client[counter].madeRequests / averageRequestQuantity;
+        float clientRequestQuantity = 0;
 
+        if (averageRequestQuantity != 0) {
+            clientRequestQuantity = clientArray.client[counter].madeRequests / averageRequestQuantity;
+        }
         printf("The client \"%s\" (id \"%i\") has made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
 
         if (clientRequestQuantity != 1) {
-            printf("This client made %.2f times the average requests quantity.\n\n", clientRequestQuantity);
+            printf("This client made %.2f times the average requests.\n\n", clientRequestQuantity);
         } else {
             printf("This client made the same requests quantity as the average.\n\n");
         }

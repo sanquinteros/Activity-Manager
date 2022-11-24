@@ -2,7 +2,7 @@ int clientRequestRepositoryExistsCurrentByClientId(int clientId) {
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -30,7 +30,7 @@ ClientRequest clientRequestRepositoryFindCurrentRequestByWorkerId(int workerId) 
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -65,7 +65,7 @@ ClientRequest clientRequestRepositoryFindOldestPendingRequest() {
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -98,7 +98,7 @@ void clientRequestRepositoryPrintCurrentRequestsByClientId(int clientId) {
     ClientRequest dbClientRequest;
     FILE * clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -122,7 +122,7 @@ int clientRequestRepositoryGetLastRequestId() {
 	ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -145,7 +145,7 @@ int clientRequestRepositoryGetLastRequestId() {
 int clientRequestRepositoryCreateRequest(ClientRequest clientRequest) {
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "a");
+    clientRequestTable = fopen(pathForClientRequestTable, "a");
     fprintf(clientRequestTable, "%i %i %i %i %s\n", clientRequestRepositoryGetLastRequestId() + 1, PENDING, -1, clientRequest.clientId, encodeSpaces(clientRequest.request));
     fclose(clientRequestTable);
 
@@ -157,7 +157,7 @@ int clientRequestRepositoryUpdateRequest(ClientRequest clientRequest) {
     FILE * clientRequestTable;
     FILE * newClientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -166,7 +166,7 @@ int clientRequestRepositoryUpdateRequest(ClientRequest clientRequest) {
 
         return -1;
     } else {
-        newClientRequestTable = fopen("../tables/newClientRequest.txt", "w");
+        newClientRequestTable = fopen(pathForNewClientRequestTable, "w");
         rewind(clientRequestTable);
 
         while(!feof(clientRequestTable)) {
@@ -182,8 +182,8 @@ int clientRequestRepositoryUpdateRequest(ClientRequest clientRequest) {
     fclose(clientRequestTable);
     fclose(newClientRequestTable);
 
-    system("del ..\\tables\\ClientRequest.txt");
-    system("rename ..\\tables\\newClientRequest.txt ClientRequest.txt");
+    system(deleteClientRequestTable);
+    system(renameClientRequestTable);
 
     return 1;
 }
@@ -194,7 +194,7 @@ int clientRequestRepositoryDeleteRequest(int id, int clientId) {
     FILE * clientRequestTable;
     FILE * newClientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -203,7 +203,7 @@ int clientRequestRepositoryDeleteRequest(int id, int clientId) {
 
         return -1;
     } else {
-        newClientRequestTable = fopen("../tables/newClientRequest.txt", "w");
+        newClientRequestTable = fopen(pathForNewClientRequestTable, "w");
         rewind(clientRequestTable);
 
         while(!feof(clientRequestTable)) {
@@ -227,8 +227,8 @@ int clientRequestRepositoryDeleteRequest(int id, int clientId) {
     fclose(clientRequestTable);
     fclose(newClientRequestTable);
 
-    system("del ..\\tables\\ClientRequest.txt");
-    system("rename ..\\tables\\newClientRequest.txt ClientRequest.txt");
+    system(deleteClientRequestTable);
+    system(renameClientRequestTable);
 
     return deleted;
 }
@@ -238,7 +238,7 @@ RequestData clientRequestRepositoryGetRequestData() {
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -268,7 +268,7 @@ int clientRequestRepositoryGetWorkingWorkers() {
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -292,7 +292,7 @@ void clientRequestRepositorySetConcludedRequestsForEachWorker(WorkerArray * work
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 
@@ -320,7 +320,7 @@ void clientRequestRepositorySetRequestQuantityForEachClient(ClientArray * client
     ClientRequest dbClientRequest;
     FILE *clientRequestTable;
 
-    clientRequestTable = fopen("../tables/ClientRequest.txt", "r");
+    clientRequestTable = fopen(pathForClientRequestTable, "r");
 
     fseek(clientRequestTable, 0, SEEK_END);
 

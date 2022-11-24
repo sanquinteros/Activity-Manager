@@ -18,6 +18,9 @@ void redirectTo(int view) {
         case CLIENTSSTATISTICS_VIEW:
             strcpy(windowName, "CLIENT STATISTICS");
             break;
+        case CONFIG_VIEW:
+            strcpy(windowName, "CONFIG");
+            break;
         case CREATEREQUEST_VIEW:
             strcpy(windowName, "CREATE REQUEST");
             break;

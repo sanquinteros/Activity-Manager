@@ -28,6 +28,7 @@
 #include "services/BestWorstClientsStatisticsService.c"
 #include "services/BestWorstWorkersStatisticsService.c"
 #include "services/ClientsStatisticsService.c"
+#include "services/ConfigService.c"
 #include "services/CreateRequestService.c"
 #include "services/CurrentRequestsService.c"
 #include "services/DeleteRequestService.c"
@@ -48,6 +49,7 @@
 #include "views/ClientDivisionView.c"
 #include "views/ClientsStatisticsView.c"
 #include "views/ClientView.c"
+#include "views/ConfigView.c"
 #include "views/CreateRequestView.c"
 #include "views/CurrentRequestsView.c"
 #include "views/DeleteRequestView.c"
@@ -73,6 +75,7 @@
 
 int main() {
     show(SPLASH_VIEW);
+    show(CONFIG_VIEW);
     show(WELCOME_VIEW);
 	return 0;
 }

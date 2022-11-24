@@ -17,6 +17,9 @@ void show(int view){
         case CLIENTSSTATISTICS_VIEW:
             showClientsStatisticsView();
             break;
+        case CONFIG_VIEW:
+            showConfigView();
+            break;
         case CREATEREQUEST_VIEW:
             showCreateRequestView();
             break;
