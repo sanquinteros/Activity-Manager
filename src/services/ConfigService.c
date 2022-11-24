@@ -47,7 +47,6 @@ void setAllPaths(Path * path) {
 
 void configServiceSetPathOfAllTables() {
     pathRepositorySetRoot(currentPath.root);
-    printf("%s\n", currentPath.root);
 
     if (currentPath.root[0] == '\0') {
         printf("Enter path of sharing tables OR enter [any number] if you will host the tables on this machine.\n");

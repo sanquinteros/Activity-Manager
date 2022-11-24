@@ -83,3 +83,25 @@ char * decodeSpaces(char string[]) {
 	}
 	return string;
 }
+
+void duplicateBackSlashOnString(char string[]) {
+    int counterForTemp = 0;
+    char temp[1000] = "";
+
+	for (int counter = 0; counter < strlen(string) * 2; counter++) {
+
+	    if (string[counter] == '\0') {
+	        counter = strlen(string) * 2;
+	    } else {
+
+            if (string[counter] == '\\') {
+                temp[counterForTemp] = '\\';
+                temp[++counterForTemp] = '\\';
+            } else {
+                temp[counterForTemp] = string[counter];
+            }
+	    }
+	    counterForTemp++;
+	}
+	strcpy(string, temp);
+}
