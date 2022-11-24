@@ -24,7 +24,7 @@ void scanfPassword(char * password) {
                     counter++;
                 } else {
                     password[counter] = '\0';
-                    printf("\nPassword can not be longer than 29 characters.\nThe password saved is \"%s\".", password);
+                    printf("\nPassword can not be longer than 29 characters.\nThe saved password is \"%s\".", password);
                     character = 13;
                 }
             }
