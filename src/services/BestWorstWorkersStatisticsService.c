@@ -80,7 +80,7 @@ void bestWorstWorkersStatisticsServicePrintfBestWorkers(WorkerArray workerArray,
     for(int counter = 0; counter < workerArray.length; counter++) {
         float workerWorkingEfficiency = workerArray.worker[counter].concludedRequests / averageWorkingEfficiency;
 
-        printf("The worker \"%s\" (id \"%i\") has worked on \"%i\" requests.\n", workerArray.worker[counter].username, workerArray.worker[counter].id, workerArray.worker[counter].concludedRequests);
+        printf("The worker \"%s\" (id \"%i\") concluded \"%i\" requests.\n", workerArray.worker[counter].username, workerArray.worker[counter].id, workerArray.worker[counter].concludedRequests);
         printf("This worker working efficiency is %.2f times the average.\n\n", workerWorkingEfficiency);
     }
 }
@@ -98,7 +98,7 @@ void bestWorstWorkersStatisticsServicePrintfWorstWorkers(WorkerArray workerArray
     for(int counter = 0; counter < workerArray.length; counter++) {
         float workerWorkingEfficiency = workerArray.worker[counter].concludedRequests / averageWorkingEfficiency;
 
-        printf("The worker \"%s\" (id \"%i\") has worked on \"%i\" requests.\n", workerArray.worker[counter].username, workerArray.worker[counter].id, workerArray.worker[counter].concludedRequests);
+        printf("The worker \"%s\" (id \"%i\") concluded \"%i\" requests.\n", workerArray.worker[counter].username, workerArray.worker[counter].id, workerArray.worker[counter].concludedRequests);
         printf("This worker working efficiency is %.2f times the average.\n\n", workerWorkingEfficiency);
     }
 }

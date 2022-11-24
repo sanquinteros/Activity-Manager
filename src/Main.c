@@ -16,6 +16,7 @@
 #include "dtos/WorkerArray.c"
 
 #include "models/ClientRequest.c"
+#include "models/Path.c"
 #include "models/User.c"
 
 #include "utils/GlobalStructsInitializer.c"
@@ -23,6 +24,7 @@
 #include "utils/ViewsInitializer.c"
 
 #include "repository/ClientRequestRepository.c"
+#include "repository/PathRepository.c"
 #include "repository/UserRepository.c"
 
 #include "services/BestWorstClientsStatisticsService.c"

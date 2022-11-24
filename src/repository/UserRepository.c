@@ -2,7 +2,7 @@ User userRepositoryFindUser(User user) {
     User dbUser;
     FILE *userTable;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 
@@ -40,7 +40,7 @@ int userRepositoryGetLastUserId() {
 	User user;
     FILE *userTable;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 
@@ -65,7 +65,7 @@ int userRepositoryExistsByUsername(char username[50]) {
     FILE *userTable;
     User user;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 
@@ -90,7 +90,7 @@ int userRepositoryExistsByIdAndRole(int id, int role) {
     FILE *userTable;
     User dbUser;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 
@@ -115,7 +115,7 @@ int userRepositoryExistsByIdAndRole(int id, int role) {
 int userRepositoryCreateUser(User user) {
     FILE *userTable;
 
-    userTable = fopen(pathForUserTable, "a");
+    userTable = fopen(currentPath.userTable, "a");
     fprintf(userTable, "%i %s %s %i\n", (userRepositoryGetLastUserId() + 1), user.username, user.password, user.role);
     fclose(userTable);
 
@@ -127,7 +127,7 @@ int userRepositoryUpdateUser(User user) {
     FILE * userTable;
     FILE * newUserTable;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 
@@ -136,7 +136,7 @@ int userRepositoryUpdateUser(User user) {
 
         return -1;
     } else {
-        newUserTable = fopen(pathForNewUserTable, "w");
+        newUserTable = fopen(currentPath.newUserTable, "w");
         rewind(userTable);
 
         while(!feof(userTable)) {
@@ -152,8 +152,8 @@ int userRepositoryUpdateUser(User user) {
     fclose(userTable);
     fclose(newUserTable);
 
-    system(deleteUserTable);
-    system(renameUserTable);
+    system(currentPath.deleteUserTable);
+    system(currentPath.renameUserTable);
 
     return 1;
 }
@@ -163,7 +163,7 @@ WorkerArray userRepositoryFindAllWorkers() {
 	User dbUser;
     FILE * userTable;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 
@@ -194,7 +194,7 @@ int userRepositoryDeleteWorker(int workerId) {
         FILE * userTable;
         FILE * newUserTable;
 
-        userTable = fopen(pathForUserTable, "r");
+        userTable = fopen(currentPath.userTable, "r");
 
         fseek(userTable, 0, SEEK_END);
 
@@ -203,7 +203,7 @@ int userRepositoryDeleteWorker(int workerId) {
 
             return -1;
         } else {
-            newUserTable = fopen(pathForNewUserTable, "w");
+            newUserTable = fopen(currentPath.newUserTable, "w");
             rewind(userTable);
 
             while(!feof(userTable)) {
@@ -217,8 +217,8 @@ int userRepositoryDeleteWorker(int workerId) {
         fclose(userTable);
         fclose(newUserTable);
 
-        system(deleteUserTable);
-        system(renameUserTable);
+        system(currentPath.deleteUserTable);
+        system(currentPath.renameUserTable);
 
         return 1;
     }
@@ -230,7 +230,7 @@ ClientArray userRepositoryFindAllClients() {
 	User dbUser;
     FILE * userTable;
 
-    userTable = fopen(pathForUserTable, "r");
+    userTable = fopen(currentPath.userTable, "r");
 
     fseek(userTable, 0, SEEK_END);
 

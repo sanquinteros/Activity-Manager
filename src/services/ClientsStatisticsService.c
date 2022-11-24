@@ -29,12 +29,12 @@ void clientsStatisticsServicePrintEachClientStatistics(ClientArray clientArray, 
         if (averageRequestQuantity != 0) {
             clientRequestQuantity = clientArray.client[counter].madeRequests / averageRequestQuantity;
         }
-        printf("The client \"%s\" (id \"%i\") has made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
+        printf("The client \"%s\" (id \"%i\") made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
 
         if (clientRequestQuantity != 1) {
             printf("This client made %.2f times the average requests.\n\n", clientRequestQuantity);
         } else {
-            printf("This client made the same requests quantity as the average.\n\n");
+            printf("This client made the same quantity of requests as the average.\n\n");
         }
     }
 }

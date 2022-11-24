@@ -1,1 +1,2 @@
 User currentUser;
+Path currentPath;

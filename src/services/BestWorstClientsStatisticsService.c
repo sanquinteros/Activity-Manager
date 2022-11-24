@@ -80,7 +80,7 @@ void bestWorstClientsStatisticsServicePrintfBestClients(ClientArray clientArray,
     for(int counter = 0; counter < clientArray.length; counter++) {
         float clientRequestQuantity = clientArray.client[counter].madeRequests / averageRequestQuantity;
 
-        printf("The client \"%s\" (id \"%i\") has made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
+        printf("The client \"%s\" (id \"%i\") made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
         printf("This client made %.2f times the average requests.\n\n", clientRequestQuantity);
     }
 }
@@ -98,7 +98,7 @@ void bestWorstClientsStatisticsServicePrintfWorstClients(ClientArray clientArray
     for(int counter = 0; counter < clientArray.length; counter++) {
         float clientRequestQuantity = clientArray.client[counter].madeRequests / averageRequestQuantity;
 
-        printf("The client \"%s\" (id \"%i\") has made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
+        printf("The client \"%s\" (id \"%i\") made \"%i\" requests.\n", clientArray.client[counter].username, clientArray.client[counter].id, clientArray.client[counter].madeRequests);
         printf("This client made %.2f times the average requests.\n\n", clientRequestQuantity);
     }
 }
@@ -119,7 +119,7 @@ void bestWorstClientsStatisticsServicePrintBestAndWorstClients() {
     printf("The average requests made per client is of %.2f requests.\n\n", averageRequestQuantity);
 
     if (clientArray.length == bestClientArray.length) {
-        printf("All clients have made the same quantity of requests.\n\n");
+        printf("All clients made the same quantity of requests.\n\n");
     } else {
         ClientArray worstClientArray = bestWorstClientsStatisticsServiceGetWorstClients(clientArray);
 

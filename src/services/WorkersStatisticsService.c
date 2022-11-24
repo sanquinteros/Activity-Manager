@@ -49,7 +49,7 @@ void workersStatisticsServicePrintEachWorkerStatistics(WorkerArray workerArray, 
         if (averageWorkingEfficiency != 0) {
             workerWorkingEfficiency = workerArray.worker[counter].concludedRequests / averageWorkingEfficiency;
         }
-        printf("The worker \"%s\" (id \"%i\") has worked on \"%i\" requests.\n", workerArray.worker[counter].username, workerArray.worker[counter].id, workerArray.worker[counter].concludedRequests);
+        printf("The worker \"%s\" (id \"%i\") concluded \"%i\" requests.\n", workerArray.worker[counter].username, workerArray.worker[counter].id, workerArray.worker[counter].concludedRequests);
 
         if (workerWorkingEfficiency != 1) {
             printf("This worker working efficiency is %.2f times the average.\n\n", workerWorkingEfficiency);
@@ -63,7 +63,7 @@ void workersStatisticsServicePrintWorkersStatistics() {
     WorkerArray workerArray = workersStatisticsServiceGetAllWorkers();
     int workingWorkers = workersStatisticsServiceGetWorkingWorkers();
     float averageWorkingEfficiency = workersStatisticsServiceGetAverageWorkingEfficiency(workerArray);
-    int percentageStatusList[] = {
+    float percentageStatusList[] = {
         workersStatisticsServiceGetWorkingWorkersPercentages(workerArray.length, workingWorkers),
         workersStatisticsServiceGetWaitingWorkersPercentages(workerArray.length, workingWorkers)
     };
