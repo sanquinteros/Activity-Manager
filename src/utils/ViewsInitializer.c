@@ -9,6 +9,7 @@ void showConfigView();
 void showCreateRequestView();
 void showCurrentRequestsView();
 void showDeleteRequestView();
+void showErrorView();
 void showExitView();
 void showFireWorkerView();
 void showLoginView();

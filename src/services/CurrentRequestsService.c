@@ -1,6 +1,8 @@
 void currentRequestsServicePrintCurrentRequests() {
     int exists;
 
+    printf("Only requests that are PENDING or PROCESSING will show up.\n\n");
+
     exists = clientRequestRepositoryExistsCurrentByClientId(currentUser.id);
 
     if (exists == 1) {

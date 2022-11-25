@@ -43,9 +43,6 @@ void redirectTo(int view) {
             strcpy(windowName, "LOGOUT");
             break;
         case MAIN_VIEW:
-        case ADMIN_VIEW:
-        case CLIENT_VIEW:
-        case WORKER_VIEW:
             strcpy(windowName, "MAIN");
             break;
         case PROFILE_VIEW:
@@ -75,8 +72,14 @@ void redirectTo(int view) {
         case WELCOME_VIEW:
             strcpy(windowName, "WELCOME");
             break;
+        case WORKERSSTATISTICS_VIEW:
+            strcpy(windowName, "WORKERS STATISTICS");
+            break;
         case WORKERDIVISION_VIEW:
             strcpy(windowName, "WORKER DIVISON");
+            break;
+        default:
+            showErrorView(view);
             break;
     }
     printf("You are being redirected to the \"%s\" window.\n", windowName);

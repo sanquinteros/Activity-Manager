@@ -2,6 +2,8 @@ void deleteRequestServiceDeleteRequest() {
     int id;
     int requestWasDeleted;
 
+    printf("Only requests that are PENDING or PROCESSING can be deleted.\n\n");
+
 	printf("In order to delete one of your current requests, you have to provide its identification number.\n");
 	printf("Enter the identification number here: ");
     scanf("%i", &id);

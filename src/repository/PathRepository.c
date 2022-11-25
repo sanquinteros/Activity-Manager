@@ -3,14 +3,18 @@ void pathRepositorySetRoot(char root[1000]) {
     FILE * pathTable;
     pathTable = fopen("Path.txt", "r");
 
-    fseek(pathTable, 0, SEEK_END);
+    if (pathTable != NULL) {
+        fseek(pathTable, 0, SEEK_END);
 
-    if (ftell(pathTable) != 0) {
-        rewind(pathTable);
+        if (ftell(pathTable) != 0) {
+            rewind(pathTable);
 
-        fscanf(pathTable, "%s\n", dbPath.root);
+            fscanf(pathTable, "%s\n", dbPath.root);
 
-        strcpy(root, decodeSpaces(dbPath.root));
+            strcpy(root, dbPath.root);
+        } else {
+            root[0] = '\0';
+        }
     } else {
         root[0] = '\0';
     }
@@ -22,7 +26,7 @@ int pathRepositorySaveRoot(char root[1000]) {
     FILE * pathTable;
     pathTable = fopen("Path.txt", "a");
 
-    fprintf(pathTable, "%s\n", encodeSpaces(root));
+    fprintf(pathTable, "%s\n", root);
 
     fclose(pathTable);
 

@@ -14,25 +14,54 @@ int containsEncodedSpace(char string[]) {
 	return 0;
 }
 
-void scanfUsername(char * username) {
-    scanf("%[^\n]%*c", username);
+void validateEntry(char string[]) {
+    if (string[0] == '\0') {
+        printf("\nA custom exception has occurred:\nThis entry can not be empty.\n\n");
+        printf("Press [any key] to exit the software.\n");
+        getch();
 
-    if (containsEncodedSpace(username) == 1) {
-        printf("Your username contains the invalid character \"&\".\nEnter an username without that character: ");
-        scanfUsername(username);
+        exit(0);
     }
 }
 
-void scanfWithSpace(char * string) {
-    scanf("%[^\n]%*c", string);
+void scanfWithSpace(char string[], int size) {
+    size--;
+    int counter = 0;
+    int character = 0;
+
+    do {
+        character = getch();
+
+        if (character != 13) {
+            if (character == 8) {
+                if (counter != 0) {
+                    counter--;
+                    printf("\b \b");
+                }
+            } else {
+                if (counter < size) {
+                    string[counter] = character;
+                    printf("%c", string[counter]);
+                    counter++;
+                } else {
+                    string[counter] = '\0';
+                    printf("\nThis entry can not be longer than \"%i\" characters.\nThe saved entry is \"%s\".", size, string);
+                    character = 13;
+                }
+            }
+        }
+    } while (character != 13);
+    printf("\n");
+    string[counter] = '\0';
+    validateEntry(string);
 
     if (containsEncodedSpace(string) == 1) {
         printf("Your entry contains the invalid character \"&\".\nEnter another one without that character: ");
-        scanfWithSpace(string);
+        scanfWithSpace(string, ++size);
     }
 }
 
-void scanfPassword(char * password) {
+void scanfPassword(char password[]) {
     int counter = 0;
     int character = 0;
 
@@ -60,6 +89,7 @@ void scanfPassword(char * password) {
     } while (character != 13);
     printf("\n");
     password[counter] = '\0';
+    validateEntry(password);
 }
 
 char * getRoleName(int role) {

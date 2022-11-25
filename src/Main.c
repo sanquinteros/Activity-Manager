@@ -55,6 +55,7 @@
 #include "views/CreateRequestView.c"
 #include "views/CurrentRequestsView.c"
 #include "views/DeleteRequestView.c"
+#include "views/ErrorView.c"
 #include "views/ExitView.c"
 #include "views/FireWorker.c"
 #include "views/LoginView.c"

@@ -1,7 +1,7 @@
 void show(int view){
     system("cls");
 
-    switch (view) {
+    switch(view) {
         case ADMINTOOLS_VIEW:
             showAdminToolsView();
             break;
@@ -42,9 +42,6 @@ void show(int view){
             showLogoutView();
             break;
         case MAIN_VIEW:
-        case ADMIN_VIEW:
-        case CLIENT_VIEW:
-        case WORKER_VIEW:
             showMainView();
             break;
         case PROFILE_VIEW:
@@ -79,6 +76,9 @@ void show(int view){
             break;
         case WORKERDIVISION_VIEW:
             showWorkerDivisionView();
+            break;
+        default:
+            showErrorView(view);
             break;
     }
 }

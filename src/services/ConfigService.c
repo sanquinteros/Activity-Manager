@@ -1,3 +1,36 @@
+void configServiceVerifyRootLength(char root[]) {
+    int lastChar = strlen(root) - 1;
+
+    if (lastChar >= 998) {
+        printf("\nA custom exception has occurred:\nRoot can not be longer than 998 characters.\n\n");
+        printf("Press [any key] to exit the software.\n");
+        getch();
+
+        exit(0);
+    }
+}
+
+void configServiceVerifyRootHasNoneSpaces(char root[]) {
+    for(int counter = 0; counter < strlen(root); counter++) {
+        if (root[counter] == ' ') {
+            printf("\nA custom exception has occurred:\nRoot can not have spaces.\n\n");
+            printf("Press [any key] to exit the software.\n");
+            getch();
+
+            exit(0);
+        }
+    }
+}
+
+void configServiceVerifyRootHasEndBackslash(char root[]) {
+    int lastChar = strlen(root) - 1;
+
+    if (root[lastChar] != '\\') {
+        root[lastChar + 1] = '\\';
+        root[lastChar + 2] = '\0';
+    }
+}
+
 void configServiceCreateTables(char pathForTables[]) {
 	FILE * clientRequestTable;
 	FILE * userTable;
@@ -17,7 +50,7 @@ void configServiceCreateTables(char pathForTables[]) {
 	fclose(userTable);
 }
 
-void setAllPaths(Path * path) {
+void configServiceSetAllPaths(Path * path) {
 	strcpy(path->clientRequestTable, path->root);
 	strcat(path->clientRequestTable, "ClientRequest.txt");
 
@@ -49,24 +82,40 @@ void configServiceSetPathOfAllTables() {
     pathRepositorySetRoot(currentPath.root);
 
     if (currentPath.root[0] == '\0') {
-        printf("Enter path of sharing tables OR enter [any number] if you will host the tables on this machine.\n");
-        printf("Enter here: ");
-        scanfWithSpace(currentPath.root);
+        char mode;
 
-        if (strlen(currentPath.root) < 2) {
-            strcpy(currentPath.root, "NULL");
+        printf("Will you be using this software on default mode? [y]/[n]: ");
+        scanf("%c", &mode);
+        getchar();
+
+        while(mode != 'y' && mode != 'n') {
+            printf("You have entered an invalid response.\nEnter [y] for YES or [n] for NO: ");
+            scanf("%c", &mode);
+            getchar();
+        }
+
+        if (mode == 'y') {
+            strcpy(currentPath.root, "DEFAULT_MODE");
+        } else {
+            printf("\nEnter path from root where tables will be or are located.\n");
+            printf("Enter here: ");
+            scanfWithSpace(currentPath.root, 1000);
+
+            configServiceVerifyRootLength(currentPath.root);
+            configServiceVerifyRootHasNoneSpaces(currentPath.root);
+            configServiceVerifyRootHasEndBackslash(currentPath.root);
         }
         pathRepositorySaveRoot(currentPath.root);
 
-        if (strcmp(currentPath.root, "NULL") == 0) {
+        if (strcmp(currentPath.root, "DEFAULT_MODE") == 0) {
             configServiceCreateTables("");
         } else {
             configServiceCreateTables(currentPath.root);
         }
     }
 
-    if (strcmp(currentPath.root, "NULL") == 0) {
+    if (strcmp(currentPath.root, "DEFAULT_MODE") == 0) {
         strcpy(currentPath.root, "");
     }
-    setAllPaths(&currentPath);
+    configServiceSetAllPaths(&currentPath);
 }

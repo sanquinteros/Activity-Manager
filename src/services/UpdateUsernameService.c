@@ -6,14 +6,14 @@ void updateUsernameServiceValidateUsername(char username[50]) {
 
         if (usernameExists == 1) {
             printf("Name already exists, enter another name: ");
-            scanfUsername(username);
+            scanfWithSpace(username, 50);
         }
     }
 }
 
 void updateUsernameServiceSetUsername(char username[50]) {
 	printf("Enter your new name: ");
-    scanfUsername(username);
+    scanfWithSpace(username, 50);
 
     updateUsernameServiceValidateUsername(username);
 }
