@@ -26,18 +26,21 @@ float workersStatisticsServiceGetAverageWorkingEfficiency(WorkerArray workerArra
     return averageWorkingEfficiency;
 }
 
-int workersStatisticsServiceGetWorkingWorkersPercentages(int totalWorkers, int workingWorkers) {
-    int workingWorkersPercentage;
+float workersStatisticsServiceGetWorkingWorkersPercentages(int totalWorkers, int workingWorkers) {
+    float workingWorkersPercentage = 0;
 
-    workingWorkersPercentage = (workingWorkers * 100.) / totalWorkers;
-
+    if (totalWorkers != 0) {
+        workingWorkersPercentage = (workingWorkers * 100.) / totalWorkers;
+    }
     return workingWorkersPercentage;
 }
 
-int workersStatisticsServiceGetWaitingWorkersPercentages(int totalWorkers, int workingWorkers) {
-    int waitingWorkersPercentage;
+float workersStatisticsServiceGetWaitingWorkersPercentages(int totalWorkers, int workingWorkers) {
+    float waitingWorkersPercentage = 0;
 
-    waitingWorkersPercentage = ((totalWorkers - workingWorkers) * 100.) / totalWorkers;
+    if (totalWorkers != 0) {
+        waitingWorkersPercentage = ((totalWorkers - workingWorkers) * 100.) / totalWorkers;
+    }
 
     return waitingWorkersPercentage;
 }
