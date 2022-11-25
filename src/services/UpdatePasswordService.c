@@ -24,5 +24,8 @@ void updatePasswordServiceSetPassword(char password[30]) {
 
 void updatePasswordServiceUpdatePassword() {
     updatePasswordServiceSetPassword(currentUser.password);
+
     userRepositoryUpdateUser(currentUser);
+
+	printf("Your password was successfully updated.\n");
 }
