@@ -51,8 +51,7 @@ void configServiceSetPathOfAllTables() {
     if (currentPath.root[0] == '\0') {
         printf("Enter path of sharing tables OR enter [any number] if you will host the tables on this machine.\n");
         printf("Enter here: ");
-        scanf("%s", currentPath.root);
-        getchar();
+        scanfWithSpace(currentPath.root);
 
         if (strlen(currentPath.root) < 2) {
             strcpy(currentPath.root, "NULL");

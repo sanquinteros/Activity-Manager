@@ -4,6 +4,34 @@ void popInvalidViewMessage() {
     printf("You have selected an invalid window.\n");
 }
 
+int containsEncodedSpace(char string[]) {
+	int i;
+    for (i=0; i < strlen(string); i++) {
+		if (string[i] == '&') {
+			return 1;
+		}
+	}
+	return 0;
+}
+
+void scanfUsername(char * username) {
+    scanf("%[^\n]%*c", username);
+
+    if (containsEncodedSpace(username) == 1) {
+        printf("Your username contains the invalid character \"&\".\nEnter an username without that character: ");
+        scanfUsername(username);
+    }
+}
+
+void scanfWithSpace(char * string) {
+    scanf("%[^\n]%*c", string);
+
+    if (containsEncodedSpace(string) == 1) {
+        printf("Your entry contains the invalid character \"&\".\nEnter another one without that character: ");
+        scanfWithSpace(string);
+    }
+}
+
 void scanfPassword(char * password) {
     int counter = 0;
     int character = 0;
@@ -52,16 +80,6 @@ char * getRequestStatusName(int status) {
     } else {
         return "CONCLUDED";
     }
-}
-
-int containsEncodedSpace(char string[]) {
-	int i;
-    for (i=0; i < strlen(string); i++) {
-		if (string[i] == '&') {
-			return 1;
-		}
-	}
-	return 0;
 }
 
 char * encodeSpaces(char string[]) {

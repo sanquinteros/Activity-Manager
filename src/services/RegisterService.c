@@ -6,7 +6,7 @@ Register registerServiceValidateUsername(Register rregister) {
 
         if (usernameExists == 1) {
             printf("Name already exists, enter another name: ");
-            scanf("%s", rregister.username);
+            scanfUsername(rregister.username);
         }
     }
     return rregister;
@@ -50,7 +50,7 @@ Register getRegisterFromUser() {
     Register rregister;
 
     printf("Enter your name: ");
-    scanf("%s", rregister.username);
+    scanfUsername(rregister.username);
     rregister = registerServiceValidateUsername(rregister);
 	printf("Enter your password: ");
 	scanfPassword(rregister.password);

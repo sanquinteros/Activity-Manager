@@ -19,7 +19,7 @@ User userRepositoryFindUser(User user) {
         while(!feof(userTable)) {
             fscanf(userTable, "%i %s %s %i\n", &dbUser.id, dbUser.username, dbUser.password, &dbUser.role);
 
-            if (strcmp(dbUser.username, user.username) == 0) {
+            if (strcmp(decodeSpaces(dbUser.username), user.username) == 0) {
                 if (strcmp(dbUser.password, user.password) == 0) {
                     fclose(userTable);
 
@@ -63,7 +63,7 @@ int userRepositoryGetLastUserId() {
 int userRepositoryExistsByUsername(char username[50]) {
     int exists = 0;
     FILE *userTable;
-    User user;
+    User dbUser;
 
     userTable = fopen(currentPath.userTable, "r");
 
@@ -73,9 +73,9 @@ int userRepositoryExistsByUsername(char username[50]) {
         rewind(userTable);
 
         while(!feof(userTable)) {
-            fscanf(userTable, "%i %s %s %i\n", &user.id, user.username, user.password, &user.role);
+            fscanf(userTable, "%i %s %s %i\n", &dbUser.id, dbUser.username, dbUser.password, &dbUser.role);
 
-            if (strcmp(user.username, username) == 0) {
+            if (strcmp(decodeSpaces(dbUser.username), username) == 0) {
                 exists = 1;
             }
         }
@@ -116,7 +116,7 @@ int userRepositoryCreateUser(User user) {
     FILE *userTable;
 
     userTable = fopen(currentPath.userTable, "a");
-    fprintf(userTable, "%i %s %s %i\n", (userRepositoryGetLastUserId() + 1), user.username, user.password, user.role);
+    fprintf(userTable, "%i %s %s %i\n", (userRepositoryGetLastUserId() + 1), encodeSpaces(user.username), user.password, user.role);
     fclose(userTable);
 
     return 1;
@@ -176,7 +176,7 @@ WorkerArray userRepositoryFindAllWorkers() {
             if (dbUser.role == WORKER_ROLE) {
                 workerArray.worker = realloc(workerArray.worker, sizeof(Worker) * ++workerArray.length);
                 workerArray.worker[workerArray.length - 1].id = dbUser.id;
-                strcpy(workerArray.worker[workerArray.length - 1].username, dbUser.username);
+                strcpy(workerArray.worker[workerArray.length - 1].username, decodeSpaces(dbUser.username));
                 workerArray.worker[workerArray.length - 1].concludedRequests = 0;
             }
         }
@@ -243,7 +243,7 @@ ClientArray userRepositoryFindAllClients() {
             if (dbUser.role == CLIENT_ROLE) {
                 clientArray.client = realloc(clientArray.client, sizeof(Client) * ++clientArray.length);
                 clientArray.client[clientArray.length - 1].id = dbUser.id;
-                strcpy(clientArray.client[clientArray.length - 1].username, dbUser.username);
+                strcpy(clientArray.client[clientArray.length - 1].username, decodeSpaces(dbUser.username));
                 clientArray.client[clientArray.length - 1].madeRequests = 0;
             }
         }

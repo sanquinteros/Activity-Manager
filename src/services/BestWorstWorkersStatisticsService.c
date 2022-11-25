@@ -119,7 +119,7 @@ void bestWorstWorkersStatisticsServicePrintBestAndWorstWorkers() {
     printf("The average working efficiency is of %.2f requests concluded.\n\n", averageWorkingEfficiency);
 
     if (workerArray.length == bestWorkerArray.length) {
-        printf("All workers have the same working efficiency!\n\n");
+        printf("All workers have the same working efficiency.\n\n");
     } else {
         WorkerArray worstWorkerArray = bestWorstWorkersStatisticsServiceGetWorstWorkers(workerArray);
 
