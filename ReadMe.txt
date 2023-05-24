@@ -1,3 +1,1 @@
-This is the source code of the software.
-In order to get it running you have to enter the "src" folder and compile the "Main.c" file with a C compiler.
-I used the Dev-C++ compiler for C language version "TDM-GCC 9.2.0 64-bit Release".
+This repository houses the source code for a project undertaken as part of my learning journey with the C programming language at UNIP university. The software has been tested and verified to work on Windows 10 and 11, though compatibility with other operating systems hasn't been confirmed. To execute the program, navigate to the "src" directory and compile the "Main.c" file using a C compiler. The Dev-C++ compiler for the C language, specifically the "TDM-GCC 9.2.0 64-bit Release" version, was used in the development process.
